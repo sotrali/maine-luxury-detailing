@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maine Luxury Detailing provides professional car cleaning services in the Portland Area"
+    />
+    <title>Maine Luxury Detailing</title>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+      <nav>
+        <a href="#" class="logo" aria-label="Company Logo">MLD</a>
+
+        <button
+          id="hamburger"
+          aria-label="Toggle mobile navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul id="navMenu" role="banner">
+          <li><a class="navLink" role="navigation" href="#Services">Services</a></li>
+          <li><a class="navLink" role="navigation" href="#Ceramic Coating">Ceramic Coating</a></li>
+          <li><a class="navLink" role="navigation" href="#Reviews">Reviews</a></li>
+          <li><a class="navLink" role="navigation" href="#Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container">
+      <section id="intro">
+        <h1>Serving Portland since 2023</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          posuere cursus ante, quis tempor lacus fringilla id. Pellentesque sed
+          mi luctus odio varius hendrerit. Nam vitae fermentum ligula, sit amet
+          consectetur sem.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div id="footer-left">
+        <p>&copy;Maine Luxury Detailing 2025. All rights reserved.</p>
+      </div>
+      <div id="footer-right">
+        <p>Phone: XXX-XXX-XXXXX</p>
+        <p>Email: xxx@xxx.xxx</p>
+        <a href="#">instagram</a>
+        <!-- <img class="footer-icon" src="">
+          <a href="#"></a>
+        </img> -->
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      // Toggle hamburger menu
+      hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+
+        const isExpanded = navMenu.classList.contains("active");
+        hamburger.setAttribute("aria-expanded", isExpanded);
+      });
+
+      // Close hamburger when nav link clicked
+      let navLinks = document.getElementsByClassName("navLink");
+      for (let i = 0; i < navLinks.length; i++) {
+        navlinks[i].addEventListener("click", function (event) {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      // CLose hamburger when click outside of menu
+      document.addEventListener("click", function (event) {
+        const clickOutside =
+          hamburger.contains(event.target) || navMenu.contains(event.target);
+
+        if (clickOutside && navMenu.classList.contains("active")) {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+        }
+      });
+    </script>
+  </body>
+</html>
