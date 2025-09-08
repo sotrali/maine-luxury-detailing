@@ -15,19 +15,21 @@
         box-sizing: border-box;
       }
 
-      /** NAV STYLING */
-      header {
-        background-color: #000;
+      .banner {
+        max-width: 60%;
+        margin: 0 auto;
         padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-      }
-
-      nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+
+      /** NAV STYLING */
+      header {
+        background-color: #000;
+        position: sticky;
+        top: 0;
+        z-index: 999;
       }
 
       .logo {
@@ -37,11 +39,7 @@
         text-decoration: none;
       }
 
-      #navMenu {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-      }
+      
 
       .navLink {
         color: #ffd700;
@@ -67,7 +65,7 @@
         width: 25px;
         height: 3px;
         background-color: #ffd700;
-        margin: 3 px 0;
+        margin: 3px 0;
         transition: 0.3s;
       }
 
@@ -80,9 +78,8 @@
       }
 
       main {
-        max-width: 700px;
+        max-width: 60%;
         margin: 3rem auto;
-        padding: 0 20px;
       }
 
       section {
@@ -120,7 +117,18 @@
         color: #ffd700;
         text-align: center;
         padding: 2rem 0;
-        margin-top: 4rem;
+        margin-top: 4rem auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #footer-left {
+        width: 50%;
+        text-align: left;
+      }
+      #footer-right {
+        width: 50%;
+        text-align: right;
       }
 
       /** "skip link" for screen readers */
@@ -141,32 +149,37 @@
         top: 6px;
       }
 
-      /** Desktop (defaul) styles */
-      @media screen and (min-width: 769px) {
+      /** Desktop (default) styles */
+      @media screen and (min-width: 851px) {
+        nav {
+          display: flex;
+          flex-direction: row;
+          gap: 3rem;
+
+          list-style: none;
+        }
+
+        nav li {
+          display: inline;
+        }
+
         h1 {
           font-size: 3rem;
-        }
-
-        nav, main {
-          padding: 0 40px;
-        }
-
-        #navMenu {
-          gap: 3rem;
         }
       }
 
       /* Mobile Styles */
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 850px) {
         #hamburger {
           display: flex;
         }
 
-        nav {
+        header {
           padding: 0 15px;
         }
 
-        #navMenu {
+        nav {
+          display: flex;
           position: fixed;
           left: -100%;
           top: 70px;
@@ -180,12 +193,8 @@
           gap: 1rem;
         }
 
-        #navMenu.active {
+        nav.active {
           left: 0;
-        }
-
-        #navMenu li {
-          margin: 1rem 0;
         }
 
         /** Hamburger animation */
@@ -212,7 +221,7 @@
     <a href="#main-content" class="skipLink">Skip to main content</a>
 
     <header>
-      <nav>
+      <div class="banner" role="banner">
         <a href="#" class="logo" aria-label="Company Logo">MLD</a>
 
         <button
@@ -225,13 +234,13 @@
           <span></span>
         </button>
 
-        <ul id="navMenu" role="banner">
-          <li><a class="navLink" role="navigation" href="#Services">Services</a></li>
-          <li><a class="navLink" role="navigation" href="#Ceramic Coating">Ceramic Coating</a></li>
-          <li><a class="navLink" role="navigation" href="#Reviews">Reviews</a></li>
-          <li><a class="navLink" role="navigation" href="#Contact">Contact</a></li>
-        </ul>
-      </nav>
+        <nav>
+          <a class="navLink" role="navigation" href="#Services">Services</a>
+          <a class="navLink" role="navigation" href="#Ceramic Coating">Ceramic Coating</a>
+          <a class="navLink" role="navigation" href="#Reviews">Reviews</a>
+          <a class="navLink" role="navigation" href="#Contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main-content">
@@ -247,26 +256,29 @@
     </main>
 
     <footer>
-      <div id="footer-left">
-        <p>&copy;Maine Luxury Detailing 2025. All rights reserved.</p>
-      </div>
-      <div id="footer-right">
-        <p>Phone: XXX-XXX-XXXXX</p>
-        <p>Email: xxx@xxx.xxx</p>
-        <a href="#">instagram</a>
-        <!-- <img class="footer-icon" src="">
-          <a href="#"></a>
-        </img> -->
+      <div class="banner">
+        <div id="footer-left">
+          &copy;Maine Luxury Detailing 2025. All rights reserved.
+        </div>
+        <div id="footer-right">
+            Phone:</br />
+            XXX-XXX-XXXXX<br />
+            Email:<br />
+            xxx@xxx.xxx<br />
+            <a href="#">instagram</a>
+          <!-- <img class="footer-icon" src="">
+            <a href="#"></a>
+          </img> -->
+        </div>
       </div>
     </footer>
 
     <script>
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
+      let hamburger = document.getElementById("hamburger");
 
       // Toggle hamburger menu
       hamburger.addEventListener("click", function () {
-        console.log("toggle");
+        let navMenu = document.getElementsByTagName("nav")[0];
         hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
 
@@ -278,6 +290,7 @@
       let navLinks = document.getElementsByClassName("navLink");
       for (let i = 0; i < navLinks.length; i++) {
         navLinks[i].addEventListener("click", function (event) {
+          let navMenu = document.getElementsByTagName("nav")[0];
           hamburger.classList.remove("active");
           navMenu.classList.remove("active");
           hamburger.setAttribute("aria-expanded", "false");
@@ -286,8 +299,9 @@
 
       // CLose hamburger when click outside of menu
       document.addEventListener("click", function (event) {
+        let navMenu = document.getElementsByTagName("nav")[0];
         const clickOutside =
-          hamburger.contains(event.target) || navMenu.contains(event.target);
+          !hamburger.contains(event.target) && !navMenu.contains(event.target);
 
         if (clickOutside && navMenu.classList.contains("active")) {
           hamburger.classList.remove("active");
