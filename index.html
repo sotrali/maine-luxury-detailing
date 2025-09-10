@@ -14,42 +14,38 @@
         padding: 0;
         box-sizing: border-box;
       }
-
-      .banner {
-        max-width: 60%;
-        margin: 0 auto;
-        padding: 1rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+       
+      /** COLOR VARIABLES */
+      :root {
+        --black: #000;
+        --gold: #ffd700;
       }
 
-      /** NAV STYLING */
+      
+      /** HEADER + NAV STYLING */
       header {
-        background-color: #000;
+        background-color: var(--black);
         position: sticky;
         top: 0;
         z-index: 999;
       }
 
+      .banner {
+        display: flex;
+        justify-content: space-between; max-width: 60%;
+        align-items: center;
+
+        height: 4.5rem;
+
+        margin: 0 auto;
+        padding: 1rem 0;
+      }
+                   
       .logo {
         font-size: 1.5rem;
         font-weight: bold;
-        color: #ffd700;
+        color: var(--gold);
         text-decoration: none;
-      }
-
-      
-
-      .navLink {
-        color: #ffd700;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-
-      .navLink:hover {
-        color: #fff;
       }
 
       #hamburger {
@@ -64,26 +60,40 @@
       #hamburger span {
         width: 25px;
         height: 3px;
-        background-color: #ffd700;
+        background-color: var(--gold);
         margin: 3px 0;
         transition: 0.3s;
+        position: relative;
       }
 
+      .navLink {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .navLink:hover {
+        color: #fff;
+      }
+
+      /** BODY + CONTENT */
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, sans-serif;
         line-height: 1.6;
-        color: #000;
-        background-color: #fff
+        color: #666;
+        background-color: var(--black);
       }
 
       main {
-        max-width: 60%;
-        margin: 3rem auto;
+        background-color: #fff;
       }
 
       section {
-        margin-bottom: 3rem;
+        max-width: 60%;
+        margin: 0 auto;
+        padding: 3rem 0;
       }
 
       h1 {
@@ -95,9 +105,9 @@
 
       h2 {
         font-size: 2rem;
-        color: #ffd700;
+        color: var(--gold);
         margin-bottom: 1rem;
-        border-bottom: 2px solid #ffd700;
+        border-bottom: 2px solid var(--gold);
         padding-bottom: 0.5rem;
       }
 
@@ -111,9 +121,10 @@
         margin-bottom: 1rem;
       }
 
+      /** FOOTER */
       footer {
         background-color: #000;
-        color: #ffd700;
+        color: var(--gold);
         text-align: center;
         padding: 2rem 0;
         margin-top: 4rem auto;
@@ -143,13 +154,13 @@
         border-radius: 4px;
         z-index: 1000;
       }
-
       .skipLink:focus {
         top: 6px;
       }
 
-      /** Desktop (default) styles */
+      /** DESKTOP RULES */
       @media screen and (min-width: 851px) {
+        /** header */
         nav {
           display: flex;
           flex-direction: row;
@@ -158,30 +169,28 @@
           list-style: none;
         }
 
-        nav li {
-          display: inline;
-        }
-
+        /** content */
         h1 {
           font-size: 3rem;
         }
       }
 
-      /* Mobile Styles */
+      /* MOBILE RULES */
       @media screen and (max-width: 850px) {
-        #hamburger {
-          display: flex;
+        /** header */
+        header {
+          padding: 0 1rem;
         }
 
-        header {
-          padding: 0 15px;
+        #hamburger {
+          display: flex;
         }
 
         nav {
           display: flex;
           position: fixed;
-          left: -100%;
-          top: 70px;
+          top: -12rem;
+          left: 0;
           flex-direction: column;
           background-color: #000;
           width: 100%;
@@ -190,28 +199,32 @@
           box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
           padding: 2rem 0;
           gap: 1rem;
+          z-index: -1;
         }
 
         nav.active {
-          left: 0;
+          top: 2rem;
         }
 
-        /** Hamburger animation */
+        /** hamburger animation */
         #hamburger.active span:nth-child(1) {
-          transform: rotate(-45deg) translate(-5px, 6px);
+          transform: rotate(-45deg) translateY(10px) translateX(-3px);
+          width: 24px;
+          height: 4px;
         }
         #hamburger.active span:nth-child(2) {
            opacity: 0;
         }
         #hamburger.active span:nth-child(3) {
-          transform: rotate(45deg) translate(-5px, -6px);
+          transform: rotate(45deg) translateY(-10px) translateX(-3px);
+          width: 24px;
+          height: 4px;
         }
- 
-         h1 {
-           font-size: 2rem;
-         }
 
-         
+        /** content rules */
+        h1 {
+          font-size: 2rem;
+        }
       }
     </style>
   </head>
@@ -275,7 +288,7 @@
     <script>
       let hamburger = document.getElementById("hamburger");
 
-      // Toggle hamburger menu
+      // toggle hamburger menu
       hamburger.addEventListener("click", function () {
         let navMenu = document.getElementsByTagName("nav")[0];
         hamburger.classList.toggle("active");
@@ -285,7 +298,7 @@
         hamburger.setAttribute("aria-expanded", isExpanded);
       });
 
-      // Close hamburger when nav link clicked
+      // close hamburger when nav link is clicked
       let navLinks = document.getElementsByClassName("navLink");
       for (let i = 0; i < navLinks.length; i++) {
         navLinks[i].addEventListener("click", function (event) {
@@ -296,7 +309,7 @@
         });
       }
 
-      // CLose hamburger when click outside of menu
+      // close hamburger when click is outside of menu
       document.addEventListener("click", function (event) {
         let navMenu = document.getElementsByTagName("nav")[0];
         const clickOutside =
