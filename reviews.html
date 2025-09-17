@@ -9,6 +9,73 @@
     />
     <title>Maine Luxury Detailing</title>
     <link href="style.css" rel="stylesheet">
+    <style>
+      #reviewContainer {
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .review-card {
+        background-color: #fff;
+
+        padding: 1rem;
+        border-radius: 1rem;
+
+        box-shadow: 0px 0px 25px var(--light-gold);
+      }
+      
+      .review-card-head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        margin-bottom: 1rem;
+      }
+      
+
+      .reviewLink {
+        color: black;
+      }
+
+      /** DESKTOP RULES */
+      @media screen and (min-width: 851px) { 
+        #reviewContainer {
+          flex-direction: row;
+          gap: 2rem;
+        }
+
+        .review-card {
+          min-width: 40%;
+          max-width: 45%;
+
+          max-height: 15rem;
+          overflow: hidden;
+        }
+         
+
+        .review-card-body {
+          max-height: 15rem;
+          overflow-y: scroll;
+        }
+      }
+
+      /* MOBILE RULES */
+      @media screen and (max-width: 850px) { 
+        #reviewContainer {
+          flex-direction: column;
+          gap: 2rem;
+
+          width: 100%;
+        }
+
+        .review-card {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   
   <body>
@@ -39,17 +106,11 @@
 
     <main id="main-content">
       <section id="reviews">
-        <h1>Reviews</h1>
-        <div class="review-card">
-          <div class="review-card-head">
-            <span class="review-card-head-left">
-            </span>
-            <span class="review-card-head-left">
-            </span> 
-          </div>
-          <span class="review-card-body">
-          </span>
+        <h1 style="margin-bottom: 7rem;">Reviews</h1>
+        <div id="reviewContainer">
         </div>
+
+        
           
       </section>
     </main>
@@ -66,6 +127,64 @@
           <a href="https://www.instagram.com/luxurydetailingmaine/" target="_blank">@luxurydetailingmaine</a>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="hamburger.js"></script>
+    <script>
+      let reviewData = [
+        {
+          "name" : "Adrianna Weber",
+          "text" : "Incredible Transformation! Luxury Detailing's Platinum package delivered incredible results, making my partner’s 15-year-old car look and feel brand new! The interior deep clean and exterior wash, clay, and seal were executed with exceptional attention to detail. The clay coating made a noticeable difference, leaving the car's surface remarkably smooth and clean. I was particularly impressed with how Aden restored the trunk to a like-new condition, cleaning every crevice. Aden was professional, informative, and communicative throughout the process. While a luxury service, the value is justified by the comprehensive package and outstanding results. Luxury Detailing exceeded expectations, revitalizing both of our vehicles and providing a truly impressive level of service. Highly recommended!",
+          "url"  : "https://share.google/HA8xBsNKPDGCdqYSh"
+        },
+        {
+          "name" : "Tara Dossiema",
+          "text" : "Job well done, had the vehicle feeling like it just left the lot. You can tell Aden takes great pride and is meticulous in his work. Great communication and the attention to detail to all aspects, deserving of 5 stars+!",
+          "url"  : "https://share.google/uMS4Ma8xT7ARAqf83"
+        },
+        {
+          "name" : "Bobo",
+          "text" : "I don't even have a car.",
+        },
+        {
+          "name" : "Sasha Mackey",
+          "text" : "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!",
+          "url" : "https://share.google/zUOkEQ8Yv6L2SkBsl"
+        }
+      ];
+
+      function insertReviews(reviews) {
+        let target = document.getElementById("reviewContainer");
+        console.log(reviewData);
+        for (let i = 0; i < reviews.length; i++) {
+          let review = reviews[i];
+          let linkedName = `<a href="${review.url}" class="reviewLink" target="_blank">${review.name}</a>`;
+
+          // load reviews 
+          target.insertAdjacentHTML("beforeend", `
+            <div class="review-card">
+              <div class="review-card-head">
+                <span class="review-card-head-left">
+                  ${review.url ? linkedName : review.name}
+                </span>
+                <span class="review-card-head-left">
+                  <span>*</span>
+                  <span>*</span>
+                  <span>*</span>
+                  <span>*</span>
+                  <span>*</span>
+                </span> 
+              </div>
+              <div class="review-card-body">
+                <p style="color: black">${review.text}</p>
+              </div>
+            </div>
+          `); 
+        }
+      }
+
+      // upon page load
+      window.onload = function() {
+        insertReviews(reviewData);
+      };
+    </script>
   </body>
 </html> 
