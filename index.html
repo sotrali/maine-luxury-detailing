@@ -8,9 +8,50 @@
       content="Maine Luxury Detailing provides mobile professional car cleaning services in the Portland Area"
     />
     <title>Maine Luxury Detailing</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" />
+    <style>
+      /** PAGE SPECIFIC STYLING */
+
+      main {
+        min-height: 530px; /** to make sure footer doesn't overlap hero */
+      }
+
+      #hero-image {
+        height: 600px;
+        width: 100%;
+        background: url("aden-desktop.jpg") 70% 10% / 100% no-repeat;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        z-index: -1;
+      }
+
+      #intro {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 40%;
+      }
+
+      #book-now {
+        display: block;
+        width: 50%;
+        margin-top: 5rem;
+      }
+
+      /** MOBILE */
+      @media screen and (max-width: 850px) {
+        #hero-image {
+          background: url("aden-mobile.jpg") center 10% / 100% no-repeat;
+        }
+
+        #intro {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
-  
+
   <body>
     <a href="#main-content" class="skipLink">Skip to main content</a>
 
@@ -30,7 +71,9 @@
 
         <nav>
           <a class="navLink" role="navigation" href="#Services">Services</a>
-          <a class="navLink" role="navigation" href="#Ceramic Coating">Ceramic Coating</a>
+          <a class="navLink" role="navigation" href="#Ceramic Coating"
+            >Ceramic Coating</a
+          >
           <a class="navLink" role="navigation" href="reviews.html">Reviews</a>
           <a class="navLink" role="navigation" href="#Contact">Contact</a>
         </nav>
@@ -38,11 +81,32 @@
     </header>
 
     <main id="main-content">
+      <div id="hero-image"></div>
+
       <section id="intro">
-        <h1>Portland's Mobile<br />Luxury Detailing Service</h1>
-        <a href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5" target="_blank">
-            <button id="book-button">BOOK NOW</button>
-        </a>
+        <h1>Restore & Protect<br />Your Vehicle</h1>
+        <p>with the best mobile car detailing service in the Portland area</p>
+      </section>
+
+      <a
+        href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5"
+        target="_blank"
+        id="book-now"
+      >
+        <button id="book-button">BOOK NOW</button>
+      </a>
+
+      <section id="FAQ">
+        <h1>FAQ</h1>
+        <div class="dropdown">
+          <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <span>HEADER</span>
+            <span class="dropdown-arrow">▼</span>
+          </div>
+          <div class="dropdown-content">
+            <div class="dropdown-body">BODY TEXT BIIIITCH!!!! 😝</div>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -53,11 +117,16 @@
         Portland, ME
       </div>
       <div id="footer-right">
-          207-807-6770<br />
-          example@email.com<br />
-          <a href="https://www.instagram.com/luxurydetailingmaine/" target="_blank">@luxurydetailingmaine</a>
+        207-807-6770<br />
+        example@email.com<br />
+        <a
+          href="https://www.instagram.com/luxurydetailingmaine/"
+          target="_blank"
+          >@luxurydetailingmaine</a
+        >
       </div>
     </footer>
     <script src="hamburger.js"></script>
+    <script src="dropdown-box.js"></script>
   </body>
 </html>
