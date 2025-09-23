@@ -1,0 +1,40 @@
+/** DROP DOWN MENU CSS */
+.dropdown {
+  width: 300px;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  overflow: hidden;
+  max-height: 0;
+
+  transition: max-height 0.3s ease;
+
+  border-left: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.dropdown-content.open {
+  max-height: 300px;
+}
+
+.dropdown-body {
+  padding: 10px;
+}

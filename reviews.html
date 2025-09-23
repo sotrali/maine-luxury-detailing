@@ -8,7 +8,8 @@
       content="Maine Luxury Detailing provides mobile professional car cleaning services in the Portland Area"
     />
     <title>Maine Luxury Detailing</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" />
+    <link href="hamburger.css" rel="stylesheet" />
     <style>
       #reviewContainer {
         display: flex;
@@ -17,7 +18,7 @@
         align-items: center;
         justify-content: center;
       }
-      
+
       .review-card {
         background-color: #fff;
 
@@ -26,7 +27,7 @@
 
         box-shadow: 0px 0px 25px var(--light-gold);
       }
-      
+
       .review-card-head {
         display: flex;
         flex-direction: row;
@@ -34,14 +35,13 @@
 
         margin-bottom: 1rem;
       }
-      
 
       .reviewLink {
         color: black;
       }
 
       /** DESKTOP RULES */
-      @media screen and (min-width: 851px) { 
+      @media screen and (min-width: 851px) {
         #reviewContainer {
           flex-direction: row;
           gap: 2rem;
@@ -54,7 +54,6 @@
           max-height: 15rem;
           overflow: hidden;
         }
-         
 
         .review-card-body {
           max-height: 15rem;
@@ -63,7 +62,7 @@
       }
 
       /* MOBILE RULES */
-      @media screen and (max-width: 850px) { 
+      @media screen and (max-width: 850px) {
         #reviewContainer {
           flex-direction: column;
           gap: 2rem;
@@ -77,13 +76,13 @@
       }
     </style>
   </head>
-  
+
   <body>
     <a href="#main-content" class="skipLink">Skip to main content</a>
 
     <header>
       <div class="banner" role="banner">
-        <a href="index.html" class="logo" aria-label="Company Logo">MLD</a>
+        <a href="index.html" class="logo" aria-label="Company Logo">LMD</a>
 
         <button
           id="hamburger"
@@ -97,7 +96,9 @@
 
         <nav>
           <a class="navLink" role="navigation" href="#Services">Services</a>
-          <a class="navLink" role="navigation" href="#Ceramic Coating">Ceramic Coating</a>
+          <a class="navLink" role="navigation" href="#Ceramic Coating"
+            >Ceramic Coating</a
+          >
           <a class="navLink" role="navigation" href="#Reviews">Reviews</a>
           <a class="navLink" role="navigation" href="#Contact">Contact</a>
         </nav>
@@ -106,12 +107,8 @@
 
     <main id="main-content">
       <section id="reviews">
-        <h1 style="margin-bottom: 7rem;">Reviews</h1>
-        <div id="reviewContainer">
-        </div>
-
-        
-          
+        <h1 style="margin-bottom: 7rem">Reviews</h1>
+        <div id="reviewContainer"></div>
       </section>
     </main>
 
@@ -122,33 +119,37 @@
         Portland, ME
       </div>
       <div id="footer-right">
-          207-807-6770<br />
-          example@email.com<br />
-          <a href="https://www.instagram.com/luxurydetailingmaine/" target="_blank">@luxurydetailingmaine</a>
+        207-807-6770<br />
+        example@email.com<br />
+        <a
+          href="https://www.instagram.com/luxurydetailingmaine/"
+          target="_blank"
+          >@luxurydetailingmaine</a
+        >
       </div>
     </footer>
     <script src="hamburger.js"></script>
     <script>
       let reviewData = [
         {
-          "name" : "Adrianna Weber",
-          "text" : "Incredible Transformation! Luxury Detailing's Platinum package delivered incredible results, making my partner’s 15-year-old car look and feel brand new! The interior deep clean and exterior wash, clay, and seal were executed with exceptional attention to detail. The clay coating made a noticeable difference, leaving the car's surface remarkably smooth and clean. I was particularly impressed with how Aden restored the trunk to a like-new condition, cleaning every crevice. Aden was professional, informative, and communicative throughout the process. While a luxury service, the value is justified by the comprehensive package and outstanding results. Luxury Detailing exceeded expectations, revitalizing both of our vehicles and providing a truly impressive level of service. Highly recommended!",
-          "url"  : "https://share.google/HA8xBsNKPDGCdqYSh"
+          name: "Adrianna Weber",
+          text: "Incredible Transformation! Luxury Detailing's Platinum package delivered incredible results, making my partner’s 15-year-old car look and feel brand new! The interior deep clean and exterior wash, clay, and seal were executed with exceptional attention to detail. The clay coating made a noticeable difference, leaving the car's surface remarkably smooth and clean. I was particularly impressed with how Aden restored the trunk to a like-new condition, cleaning every crevice. Aden was professional, informative, and communicative throughout the process. While a luxury service, the value is justified by the comprehensive package and outstanding results. Luxury Detailing exceeded expectations, revitalizing both of our vehicles and providing a truly impressive level of service. Highly recommended!",
+          url: "https://share.google/HA8xBsNKPDGCdqYSh",
         },
         {
-          "name" : "Tara Dossiema",
-          "text" : "Job well done, had the vehicle feeling like it just left the lot. You can tell Aden takes great pride and is meticulous in his work. Great communication and the attention to detail to all aspects, deserving of 5 stars+!",
-          "url"  : "https://share.google/uMS4Ma8xT7ARAqf83"
+          name: "Tara Dossiema",
+          text: "Job well done, had the vehicle feeling like it just left the lot. You can tell Aden takes great pride and is meticulous in his work. Great communication and the attention to detail to all aspects, deserving of 5 stars+!",
+          url: "https://share.google/uMS4Ma8xT7ARAqf83",
         },
         {
-          "name" : "Bobo",
-          "text" : "I don't even have a car.",
+          name: "Bobo",
+          text: "I don't even have a car.",
         },
         {
-          "name" : "Sasha Mackey",
-          "text" : "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!",
-          "url" : "https://share.google/zUOkEQ8Yv6L2SkBsl"
-        }
+          name: "Sasha Mackey",
+          text: "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!",
+          url: "https://share.google/zUOkEQ8Yv6L2SkBsl",
+        },
       ];
 
       function insertReviews(reviews) {
@@ -158,8 +159,10 @@
           let review = reviews[i];
           let linkedName = `<a href="${review.url}" class="reviewLink" target="_blank">${review.name}</a>`;
 
-          // load reviews 
-          target.insertAdjacentHTML("beforeend", `
+          // load reviews
+          target.insertAdjacentHTML(
+            "beforeend",
+            `
             <div class="review-card">
               <div class="review-card-head">
                 <span class="review-card-head-left">
@@ -177,14 +180,15 @@
                 <p style="color: black">${review.text}</p>
               </div>
             </div>
-          `); 
+          `
+          );
         }
       }
 
       // upon page load
-      window.onload = function() {
+      window.onload = function () {
         insertReviews(reviewData);
       };
     </script>
   </body>
-</html> 
+</html>

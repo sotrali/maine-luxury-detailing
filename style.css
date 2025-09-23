@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  letter-spacing: 0.01rem;
 }
 
 /** COLOR VARIABLES */
 :root {
-  --black: #000;
+  --black: #111111;
   --gold: #ffd700;
   --dark-gold: #d1b410;
   --light-gold: rgba(255, 215, 0, 0.5);
@@ -23,7 +25,7 @@ header {
 .banner {
   display: flex;
   justify-content: space-between;
-  max-width: 60%;
+  max-width: 90%;
   align-items: center;
 
   height: 4.5rem;
@@ -37,24 +39,6 @@ header {
   font-weight: bold;
   color: var(--gold);
   text-decoration: none;
-}
-
-#hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 5px;
-}
-
-#hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: var(--gold);
-  margin: 3px 0;
-  transition: 0.3s;
-  position: relative;
 }
 
 .navLink {
@@ -117,7 +101,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
-  color: #000;
+  color: var(--black);
 }
 
 p {
@@ -132,9 +116,9 @@ footer {
   margin: 5rem auto;
   padding: 2rem 0;
 
-  max-width: 60%;
+  max-width: 90%;
 
-  background-color: #000;
+  background-color: var(--black);
   color: var(--gold);
 
   text-align: center;
@@ -155,7 +139,7 @@ footer {
   top: -50px;
   left: 6px;
   background: #fff;
-  color: #000;
+  color: var(--black);
   padding: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -174,10 +158,8 @@ footer {
   background-color: var(--black);
   color: var(--gold);
 
-  border: none;
+  border: 1px solid var(--dark-gold);
   border-radius: 5rem;
-
-  box-shadow: 0px 0px 50px var(--gold);
 
   padding: 2rem 0;
   margin: 0;
@@ -185,12 +167,15 @@ footer {
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
+  transition: 0.5s ease;
 }
 #book-button:hover {
   cursor: pointer;
+  background-color: var(--dark-gold);
+  box-shadow: 0px 0px 30px var(--gold);
 }
 #book-button:active {
-  background-color: var(--dark-gold);
+  background-color: var(--gold);
 }
 
 /** DESKTOP RULES */
@@ -221,10 +206,6 @@ footer {
     padding: 0 1rem;
   }
 
-  #hamburger {
-    display: flex;
-  }
-
   nav {
     display: flex;
     flex-direction: column;
@@ -239,7 +220,7 @@ footer {
 
     font-size: 1rem;
     text-align: center;
-    background-color: #000;
+    background-color: var(--black);
     transition: top 0.5s ease;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     z-index: -1;
@@ -247,21 +228,6 @@ footer {
 
   nav.active {
     top: 1.5rem;
-  }
-
-  /** hamburger animation */
-  #hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translateY(10px) translateX(-3px);
-    width: 24px;
-    height: 4px;
-  }
-  #hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  #hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translateY(-10px) translateX(-3px);
-    width: 24px;
-    height: 4px;
   }
 
   /** footer */
@@ -278,45 +244,4 @@ footer {
     font-size: 1.75rem;
     width: 85%;
   }
-}
-
-/** DROP DOWN MENUS */
-.dropdown {
-  width: 300px;
-}
-
-.dropdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid var(--gold);
-  cursor: pointer;
-}
-
-.dropdown-arrow {
-  transition: transform 0.3s ease;
-}
-
-.dropdown-arrow.open {
-  transform: rotate(180deg);
-}
-
-.dropdown-content {
-  overflow: hidden;
-  max-height: 0;
-
-  transition: max-height 0.3s ease;
-
-  border-left: 1px solid var(--gold);
-  border-right: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
-}
-
-.dropdown-content.open {
-  max-height: 300px;
-}
-
-.dropdown-body {
-  padding: 10px;
 }
