@@ -8,9 +8,9 @@
       content="Maine Luxury Detailing provides mobile professional car cleaning services in the Portland Area"
     />
     <title>Maine Luxury Detailing</title>
-    <link href="style.css" rel="stylesheet" />
-    <link href="dropdown.css" rel="stylesheet" />
-    <link href="hamburger.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/dropdown.css" rel="stylesheet" />
+    <link href="css/hamburger.css" rel="stylesheet" />
     <style>
       /** PAGE SPECIFIC STYLING */
 
@@ -21,7 +21,7 @@
       #hero-image {
         height: 600px;
         width: 100%;
-        background: url("aden-desktop.jpg") 70% 10% / 100% no-repeat;
+        background: url("assets/img/aden-desktop.jpg") 70% 10% / 100% no-repeat;
         position: absolute;
         top: 0px;
         left: 0px;
@@ -44,7 +44,8 @@
       /** MOBILE */
       @media screen and (max-width: 850px) {
         #hero-image {
-          background: url("aden-mobile.jpg") center 10% / 100% no-repeat;
+          background: url("assets/img/aden-mobile.jpg") center 10% / 100%
+            no-repeat;
         }
 
         #intro {
@@ -99,7 +100,7 @@
       </a>
 
       <section id="FAQ">
-        <h1>FAQ</h1>
+        <h1 style="margin-bottom: 2rem">FAQ</h1>
         <div class="dropdown">
           <div class="dropdown-header" onclick="toggleDropdown(this)">
             <span>HEADER</span>
@@ -128,7 +129,7 @@
         >
       </div>
     </footer>
-    <script src="hamburger.js"></script>
-    <script src="dropdown.js"></script>
+    <script src="js/hamburger.js"></script>
+    <script src="js/dropdown.js"></script>
   </body>
 </html>

@@ -8,8 +8,8 @@
       content="Maine Luxury Detailing provides mobile professional car cleaning services in the Portland Area"
     />
     <title>Maine Luxury Detailing</title>
-    <link href="style.css" rel="stylesheet" />
-    <link href="hamburger.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/hamburger.css" rel="stylesheet" />
     <style>
       #reviewContainer {
         display: flex;
@@ -40,6 +40,12 @@
         color: black;
       }
 
+      .review-card-body {
+        max-height: 15rem;
+        overflow-y: scroll;
+        text-align: left;
+      }
+
       /** DESKTOP RULES */
       @media screen and (min-width: 851px) {
         #reviewContainer {
@@ -51,13 +57,7 @@
           min-width: 40%;
           max-width: 45%;
 
-          max-height: 15rem;
           overflow: hidden;
-        }
-
-        .review-card-body {
-          max-height: 15rem;
-          overflow-y: scroll;
         }
       }
 
@@ -128,12 +128,12 @@
         >
       </div>
     </footer>
-    <script src="hamburger.js"></script>
+    <script src="js/hamburger.js"></script>
     <script>
       let reviewData = [
         {
           name: "Adrianna Weber",
-          text: "Incredible Transformation! Luxury Detailing's Platinum package delivered incredible results, making my partner’s 15-year-old car look and feel brand new! The interior deep clean and exterior wash, clay, and seal were executed with exceptional attention to detail. The clay coating made a noticeable difference, leaving the car's surface remarkably smooth and clean. I was particularly impressed with how Aden restored the trunk to a like-new condition, cleaning every crevice. Aden was professional, informative, and communicative throughout the process. While a luxury service, the value is justified by the comprehensive package and outstanding results. Luxury Detailing exceeded expectations, revitalizing both of our vehicles and providing a truly impressive level of service. Highly recommended!",
+          text: "Incredible Transformation! ... Luxury Detailing exceeded expectations, revitalizing both of our vehicles and providing a truly impressive level of service. Highly recommended!",
           url: "https://share.google/HA8xBsNKPDGCdqYSh",
         },
         {
@@ -148,6 +148,11 @@
         {
           name: "Sasha Mackey",
           text: "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!",
+          url: "https://share.google/zUOkEQ8Yv6L2SkBsl",
+        },
+        {
+          name: "TEST",
+          text: "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden",
           url: "https://share.google/zUOkEQ8Yv6L2SkBsl",
         },
       ];
@@ -169,11 +174,11 @@
                   ${review.url ? linkedName : review.name}
                 </span>
                 <span class="review-card-head-left">
-                  <span>*</span>
-                  <span>*</span>
-                  <span>*</span>
-                  <span>*</span>
-                  <span>*</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
                 </span> 
               </div>
               <div class="review-card-body">
