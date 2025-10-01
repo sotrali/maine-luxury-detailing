@@ -46,6 +46,46 @@
         text-align: left;
       }
 
+      /** GALLERY!! */
+      #gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-pair {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 75%;
+      }
+
+      .before-img {
+        max-height: 100%;
+      }
+
+      .after-img-container {
+        position: absolute;
+        top: 0;
+
+        max-height: 100%;
+
+        opacity: 0%;
+        transition: .5s;
+      }
+      .after-img-container:hover {
+        opacity: 100%;
+      }
+
+      .after-img {
+        height: 100%;
+        width: 100%;
+      }
+
       /** DESKTOP RULES */
       @media screen and (min-width: 851px) {
         #reviewContainer {
@@ -59,6 +99,10 @@
 
           overflow: hidden;
         }
+
+        .image-pair, .before-img, .after-img-container {
+          width: 80%;
+        }
       }
 
       /* MOBILE RULES */
@@ -71,6 +115,10 @@
         }
 
         .review-card {
+          width: 100%;
+        }
+
+        .image-pair, .before-img, .after-img-container {
           width: 100%;
         }
       }
@@ -107,8 +155,17 @@
 
     <main id="main-content">
       <section id="reviews">
-        <h1 style="margin-bottom: 7rem">Reviews</h1>
         <div id="reviewContainer"></div>
+      </section>
+
+      <section id="gallery">
+        <h1 style="margin-bottom: 7rem">Gallery</h1>
+        <div class="image-pair">
+          <img class="before-img" src="assets/img/before1.jpg"></img>
+          <span class="after-img-container">
+            <img class="after-img" src="assets/img/after1.jpg"></img>
+          </span>
+        </div>
       </section>
     </main>
 
