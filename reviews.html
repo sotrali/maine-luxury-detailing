@@ -11,16 +11,19 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
     <style>
+      /** REVIEWS */
       #reviewContainer {
         display: flex;
         flex-wrap: wrap;
+        gap: 2rem;
 
         align-items: center;
         justify-content: center;
       }
 
+      /** REVIEW CARD */
       .review-card {
-        background-color: #fff;
+        background-color: #eee;
 
         padding: 1rem;
         border-radius: 1rem;
@@ -46,13 +49,14 @@
         text-align: left;
       }
 
-      /** GALLERY!! */
-      #gallery {
+      /** GALLERY */
+      #galleryPhotos {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
 
+      /** BEFORE / AFTER IMAGES */
       .image-pair {
         position: relative;
 
@@ -86,11 +90,12 @@
         width: 100%;
       }
 
-      /** DESKTOP RULES */
+      /** 
+       * DESKTOP RULES 
+       */
       @media screen and (min-width: 851px) {
         #reviewContainer {
           flex-direction: row;
-          gap: 2rem;
         }
 
         .review-card {
@@ -100,18 +105,33 @@
           overflow: hidden;
         }
 
+        #galleryPhotos {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+        }
+
+
         .image-pair, .before-img, .after-img-container {
-          width: 80%;
+          width: 400px;
         }
       }
 
-      /* MOBILE RULES */
+      /* 
+       * MOBILE RULES
+       */
       @media screen and (max-width: 850px) {
         #reviewContainer {
           flex-direction: column;
-          gap: 2rem;
-
           width: 100%;
+        }
+
+
+        #galleryPhotos {
+          flex-direction: column;
+          gap: 2rem;
         }
 
         .review-card {
@@ -154,17 +174,43 @@
     </header>
 
     <main id="main-content">
-      <section id="reviews">
+      <section>
+        <h1 style="margin-bottom: 7rem">Reviews</h1>
         <div id="reviewContainer"></div>
       </section>
 
       <section id="gallery">
         <h1 style="margin-bottom: 7rem">Gallery</h1>
-        <div class="image-pair">
-          <img class="before-img" src="assets/img/before1.jpg"></img>
-          <span class="after-img-container">
-            <img class="after-img" src="assets/img/after1.jpg"></img>
-          </span>
+        <div id="galleryPhotos">
+
+          <div class="image-pair">
+            <img class="before-img" src="assets/img/before1.jpg"></img>
+            <span class="after-img-container">
+              <img class="after-img" src="assets/img/after1.jpg"></img>
+            </span>
+          </div>
+
+          <div class="image-pair">
+            <img class="before-img" src="assets/img/before1.jpg"></img>
+            <span class="after-img-container">
+              <img class="after-img" src="assets/img/after1.jpg"></img>
+            </span>
+          </div>
+
+          <div class="image-pair">
+            <img class="before-img" src="assets/img/before1.jpg"></img>
+            <span class="after-img-container">
+              <img class="after-img" src="assets/img/after1.jpg"></img>
+            </span>
+          </div>
+
+          <div class="image-pair">
+            <img class="before-img" src="assets/img/before1.jpg"></img>
+            <span class="after-img-container">
+              <img class="after-img" src="assets/img/after1.jpg"></img>
+            </span>
+          </div>
+
         </div>
       </section>
     </main>
