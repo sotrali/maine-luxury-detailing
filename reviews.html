@@ -57,7 +57,7 @@
       }
 
       /** BEFORE / AFTER IMAGES */
-      .image-pair {
+      .before-after-pair {
         position: relative;
 
         display: flex;
@@ -68,7 +68,7 @@
         width: 75%;
       }
 
-      .before-img {
+      .before-img-container {
         max-height: 100%;
       }
 
@@ -88,6 +88,24 @@
       .after-img {
         height: 100%;
         width: 100%;
+      }
+
+      .img-state-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        font-size: .8rem;
+
+        background-color: rgba(0, 0, 0, 0.8);
+
+        padding: .25rem 1rem;
+      }
+      .before-img-container .img-state-text {
+        color: white;
+      }
+      .after-img-container .img-state-text {
+        color: var(--gold);
       }
 
       /** 
@@ -114,7 +132,7 @@
         }
 
 
-        .image-pair, .before-img, .after-img-container {
+        .before-after-pair, .before-img, .after-img-container {
           width: 400px;
         }
       }
@@ -138,7 +156,7 @@
           width: 100%;
         }
 
-        .image-pair, .before-img, .after-img-container {
+        .before-after-pair, .before-img, .after-img-container {
           width: 100%;
         }
       }
@@ -163,12 +181,10 @@
         </button>
 
         <nav>
-          <a class="navLink" role="navigation" href="#Services">Services</a>
-          <a class="navLink" role="navigation" href="#Ceramic Coating"
-            >Ceramic Coating</a
-          >
-          <a class="navLink" role="navigation" href="#Reviews">Reviews</a>
-          <a class="navLink" role="navigation" href="#Contact">Contact</a>
+          <a class="navLink" role="navigation" href="services.html">Services</a>
+          <a class="navLink" role="navigation" href="ceramic_coating.html">Ceramic Coating</a>
+          <a class="navLink" role="navigation" href="reviews.html">Reviews</a>
+          <a class="navLink" role="navigation" href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
@@ -183,33 +199,61 @@
         <h1 style="margin-bottom: 7rem">Gallery</h1>
         <div id="galleryPhotos">
 
-          <div class="image-pair">
-            <img class="before-img" src="assets/img/before1.jpg"></img>
-            <span class="after-img-container">
-              <img class="after-img" src="assets/img/after1.jpg"></img>
+          <figure class="before-after-pair">
+            <span class="before-img-container">
+              <figcaption class="img-state-text">before</figcaption>
+              <img class="before-img" src="assets/img/before1.jpg" 
+                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
+              </img>
             </span>
-          </div>
+            <span class="after-img-container">
+              <figcaption class="img-state-text">after</figcaption>
+              <img class="after-img" src="assets/img/after1.jpg"
+                alt="The same trunk after it has been restored to like-new condition."></img>
+            </span>
+          </figure>
 
-          <div class="image-pair">
-            <img class="before-img" src="assets/img/before1.jpg"></img>
-            <span class="after-img-container">
-              <img class="after-img" src="assets/img/after1.jpg"></img>
+          <figure class="before-after-pair">
+            <span class="before-img-container">
+              <figcaption class="img-state-text">before</figcaption>
+              <img class="before-img" src="assets/img/before1.jpg" 
+                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
+              </img>
             </span>
-          </div>
+            <span class="after-img-container">
+              <figcaption class="img-state-text">after</figcaption>
+              <img class="after-img" src="assets/img/after1.jpg"
+                alt="The same trunk after it has been restored to like-new condition."></img>
+            </span>
+          </figure>
 
-          <div class="image-pair">
-            <img class="before-img" src="assets/img/before1.jpg"></img>
-            <span class="after-img-container">
-              <img class="after-img" src="assets/img/after1.jpg"></img>
+          <figure class="before-after-pair">
+            <span class="before-img-container">
+              <figcaption class="img-state-text">before</figcaption>
+              <img class="before-img" src="assets/img/before1.jpg" 
+                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
+              </img>
             </span>
-          </div>
+            <span class="after-img-container">
+              <figcaption class="img-state-text">after</figcaption>
+              <img class="after-img" src="assets/img/after1.jpg"
+                alt="The same trunk after it has been restored to like-new condition."></img>
+            </span>
+          </figure>
 
-          <div class="image-pair">
-            <img class="before-img" src="assets/img/before1.jpg"></img>
-            <span class="after-img-container">
-              <img class="after-img" src="assets/img/after1.jpg"></img>
+          <figure class="before-after-pair">
+            <span class="before-img-container">
+              <figcaption class="img-state-text">before</figcaption>
+              <img class="before-img" src="assets/img/before1.jpg" 
+                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
+              </img>
             </span>
-          </div>
+            <span class="after-img-container">
+              <figcaption class="img-state-text">after</figcaption>
+              <img class="after-img" src="assets/img/after1.jpg"
+                alt="The same trunk after it has been restored to like-new condition."></img>
+            </span>
+          </figure>
 
         </div>
       </section>
