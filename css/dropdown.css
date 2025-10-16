@@ -10,7 +10,7 @@
 
   padding: 10px;
 
-  border: 1px solid var(--dark-gold);
+  border: 1px solid var(--gold);
 
   cursor: pointer;
   transition: 0.5s;
@@ -20,10 +20,15 @@
   border: 1px solid white;
 }
 
+.dropdown-header:hover span {
+  transform: rotate(65deg); /** arrow hover effect */
+}
+
 .dropdown-arrow {
   color: var(--gold);
   transform: rotate(90deg);
   transition: transform 0.3s ease;
+  font-size: 2rem;
 }
 
 .dropdown-arrow.open {
@@ -33,7 +38,8 @@
 .dropdown-content {
   overflow: hidden;
   max-height: 0;
-
+  border-left: solid 1px var(--dark-gold);
+  border-right: solid 1px var(--dark-gold);
   transition: max-height 0.3s ease;
 }
 
@@ -43,4 +49,5 @@
 
 .dropdown-body {
   padding: 10px;
+  color: white;
 }

@@ -9,8 +9,8 @@
 /** COLOR VARIABLES */
 :root {
   --black: #111111;
-  --gold: #ffd700;
-  --dark-gold: #d1b410;
+  --gold: rgb(223, 200, 65);
+  --dark-gold: rgb(158, 141, 44);
   --light-gold: rgba(255, 215, 0, 0.5);
 }
 
@@ -93,19 +93,16 @@ a {
 h1 {
   font-size: 2.5rem;
   color: #fff;
-  text-align: center;
 }
 
 h2 {
   font-size: 2rem;
-  color: var(--gold);
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--gold);
+  color: #fff;
 }
 
 h3 {
   font-size: 1.5rem;
-  color: var(--black);
+  color: #fff;
 }
 
 p {
