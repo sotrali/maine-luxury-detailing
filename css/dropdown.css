@@ -38,8 +38,8 @@
 .dropdown-content {
   overflow: hidden;
   max-height: 0;
-  border-left: solid 1px var(--dark-gold);
-  border-right: solid 1px var(--dark-gold);
+  border-left: solid 1px var(--gold);
+  border-right: solid 1px var(--gold);
   transition: max-height 0.3s ease;
 }
 
