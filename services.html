@@ -96,9 +96,14 @@
         border: none;
       }
       .dropdown-content.open {
-        max-height: 1500px;
+        max-height: 2000px;
       }
 
+      /**
+        TODO:
+          - desktop view should be FLEX ROW
+          - mobile view should be normal columns
+      */
       .dropdown-body {
         margin: 1rem 1rem 1.5rem 6rem;
       }
@@ -161,6 +166,7 @@
           </div>
           <div class="dropdown-content">
 
+            <!-- LEVEL ONE PACKAGE -->
             <div class="dropdown">
               <div class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
@@ -172,33 +178,41 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <h3>Interior:</h3>
-                  <ul>
-                    <li>Vacuum & light carpet shampooing</li>
-                    <li>Plastics, leather, and vinyls cleaning</li>
-                    <li>Light seat shampooing</li>
-                    <li>Interior & exterior window cleaning</li>
-                    <li>Crack & crevice cleaning</li>
-                  </ul>
-                  <br /><br />
-                  <h3>Exterior:</h3>
-                  <ul>
-                    <li>Hand wash & dry</li>
-                    <li>Bug gut removal</li>
-                    <li>Tire, wheel, and wheel well cleaning + tire shine</li>
-                    <li>Window cleaning</li>
-                    <li>Light door jam cleaning</li>
-                  </ul>
-                  <br />
-                  <a target="_blank" class="book-link" 
-                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
-                  >
-                    <button id="book-button">Book Level One Package Now</button>
-                  </a>
+                  <span>
+                    <h3>Interior:</h3>
+                    <ul>
+                      <li>Vacuum & light carpet shampooing</li>
+                      <li>Plastics, leather, and vinyls cleaning</li>
+                      <li>Light seat shampooing</li>
+                      <li>Interior & exterior window cleaning</li>
+                      <li>Crack & crevice cleaning</li>
+                    </ul>
+                  </span>
+
+                  <span>
+                    <h3>Exterior:</h3>
+                    <ul>
+                      <li>Hand wash & dry</li>
+                      <li>Bug gut removal</li>
+                      <li>Tire, wheel, and wheel well cleaning + tire shine</li>
+                      <li>Window cleaning</li>
+                      <li>Light door jam cleaning</li>
+                    </ul>
+                  </span>
+
+                  <span>
+                    <a target="_blank" class="book-link" 
+                      href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
+                    >
+                      <button id="book-button">Book Level One Package Now</button>
+                    </a>
+                  </span>
+
                 </div>
               </div>
             </div>
 
+            <!-- LEVEL TWO PACKAGE -->
             <div class="dropdown">
               <div class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
