@@ -15,20 +15,25 @@
       #reviewContainer {
         display: flex;
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 5rem;
 
         align-items: center;
         justify-content: center;
       }
 
+        
       /** REVIEW CARD */
       .review-card {
-        background-color: #eee;
-
         padding: 1rem;
         border-radius: 1rem;
 
+        transition: 1s ease;
         box-shadow: 0px 0px 25px var(--light-gold);
+        color: white;
+      }
+
+      .review-card:hover {
+        box-shadow: 0px 0px 25px white;
       }
 
       .review-card-head {
@@ -37,16 +42,14 @@
         justify-content: space-between;
 
         margin-bottom: 1rem;
-      }
-
-      .reviewLink {
-        color: black;
+        color: var(--gold);
       }
 
       .review-card-body {
         max-height: 15rem;
         overflow-y: auto;
         text-align: left;
+        color: white;
       }
 
       /** GALLERY */
@@ -329,7 +332,7 @@
                 </span> 
               </div>
               <div class="review-card-body">
-                <p style="color: black">${review.text}</p>
+                <p>${review.text}</p>
               </div>
             </div>
           `

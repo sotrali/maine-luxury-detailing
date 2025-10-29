@@ -12,6 +12,12 @@
     <link href="css/dropdown.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
     <style>
+      .info-container {
+        background-color: var(--gold);
+        max-width: 80%;
+        width: 80%;
+        border-radius: 4rem;
+      }
 
     </style>
   </head>
@@ -47,10 +53,15 @@
         <div id="reviewContainer"></div>
       </section>
       
-      <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; width: 100%; gap: 10%;">
-          <section style="background-color: red; width: 100%; flex-grow: 3"></section>
-          <section style="background-color: red; width: 20%;"></section>
-          <section style="background-color: blue; width: 50%;"></section>
+      <section class="info-container">
+      </section>
+
+      <div style="display: flex; flex-direction: row; justify-content: space-between; width: 80%;">
+          <section class="info-container" style="width: 30%;">
+          </section>
+
+          <section class="info-container" style="width: 60%;">
+          </section>
       </div>
 
     </main>
