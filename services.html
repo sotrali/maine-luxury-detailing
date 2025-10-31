@@ -59,6 +59,12 @@
         border: 1px solid white;
       }
 
+      /** Prevent nested dropdowns from having borders */
+      .dropdown .dropdown {
+        border-left: none;
+        border-right: none;
+      }
+
       .dropdown-header {
         align-items: center;
         justify-content: flex-start;
@@ -106,9 +112,24 @@
           - get rid of double border on dropdowns if nested
       */
       .dropdown-body {
+        display: flex;
+        flex-direction: row;
+        justify-items: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
         margin: 1rem 1rem 1.5rem 6rem;
       }
 
+      .dropdown-body p {
+        padding-right: 4rem;
+      }
+
+      .dropdown-body-half {
+        flex-basis: 50%;
+      }
+      .dropdown-body-full {
+        flex-basis: 100%;
+      }
       /** mobile rules */
       /** MOBILE */
       @media screen and (max-width: 850px) {
@@ -179,8 +200,8 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <span>
-                    <h3>Interior:</h3>
+                  <span class="dropdown-body-half">
+                    <h3>Interior</h3>
                     <ul>
                       <li>Vacuum & light carpet shampooing</li>
                       <li>Plastics, leather, and vinyls cleaning</li>
@@ -190,8 +211,8 @@
                     </ul>
                   </span>
 
-                  <span>
-                    <h3>Exterior:</h3>
+                  <span class="dropdown-body-half">
+                    <h3>Exterior</h3>
                     <ul>
                       <li>Hand wash & dry</li>
                       <li>Bug gut removal</li>
@@ -201,7 +222,7 @@
                     </ul>
                   </span>
 
-                  <span>
+                  <span class="dropdown-body-full">
                     <a target="_blank" class="book-link" 
                       href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
                     >
@@ -225,29 +246,35 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <h3>Interior:</h3>
-                  <ul>
-                    <li>Vacuum & light carpet shampooing</li>
-                    <li>Plastics, leather, and vinyls cleaning</li>
-                    <li>Light seat shampooing</li>
-                    <li>Interior & exterior window cleaning</li>
-                    <li>Crack & crevice cleaning</li>
-                  </ul>
-                  <br /><br />
-                  <h3>Exterior:</h3>
-                  <ul>
-                    <li>Hand wash & dry</li>
-                    <li>Bug gut removal</li>
-                    <li>Tire, wheel, and wheel well cleaning + tire shine</li>
-                    <li><em>Clay service to remove embedded contamination</em></li>
-                    <li><em>3 to 6 month ceramic paint sealant: gloss, protection, hydrophobic & self-cleaning properties</em></li>
-                  </ul>
+                  <span class="dropdown-body-half">
+                    <h3>Interior</h3>
+                    <ul>
+                      <li>Vacuum & light carpet shampooing</li>
+                      <li>Plastics, leather, and vinyls cleaning</li>
+                      <li>Light seat shampooing</li>
+                      <li>Interior & exterior window cleaning</li>
+                      <li>Crack & crevice cleaning</li>
+                    </ul>
+                  </span>
 
-                  <a target="_blank" class="book-link" 
-                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
-                  >
-                    <button id="book-button">Book Level Two Package Now</button>
-                  </a>
+                  <span class="dropdown-body-half">
+                    <h3>Exterior</h3>
+                    <ul>
+                      <li>Hand wash & dry</li>
+                      <li>Bug gut removal</li>
+                      <li>Tire, wheel, and wheel well cleaning + tire shine</li>
+                      <li><em>Clay service to remove embedded contamination</em></li>
+                      <li><em>3 to 6 month ceramic paint sealant: gloss, protection, hydrophobic & self-cleaning properties</em></li>
+                    </ul>
+                  </span>
+
+                  <span class="dropdown-body-full">
+                    <a target="_blank" class="book-link" 
+                      href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
+                    >
+                      <button id="book-button">Book Level Two Package Now</button>
+                    </a>
+                  <span>
                 </div>
               </div>
             </div> 
@@ -276,19 +303,30 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <ul>
-                    <li>Hand wash</li>
-                    <li>Decontamination of paint & glass</li>
-                    <li>1 Step polish to remove light swirls and enhance gloss</li>
-                    <li>
+
+                  <span class="dropdown-body-half">
+                    <h3>Description</h3>
+                    <p>
                       A protective layer on your vehicle's surface that repels water, 
                       dirt, and contaminants, making cleaning easier and enhancing the 
-                      paint's durability and shine for 3-5 years
-                    </li>
-                  </ul>
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
-                    <button id="book-button">Book Elite Coating</button>
-                  </a>
+                      paint's durability and shine for 3-5 years.
+                    </p>
+                  </span>
+
+                  <span class="dropdown-body-half">
+                    <h3>Includes</h3>
+                    <ul>
+                      <li>Hand wash</li>
+                      <li>Decontamination of paint & glass</li>
+                      <li>1 Step polish to remove light swirls and enhance gloss</li>
+                    </ul>
+                  </span>
+
+                  <span class="dropdown-body-half">
+                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
+                      <button id="book-button">Book Elite Coating</button>
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -304,25 +342,36 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <ul>
-                    <li>Hand wash & dry</li>
-                    <li>Wheel cleaning</li>
-                    <li>1 Stage paint correction on all paint & glass</li>
-                    <li>
+                  <span class="dropdown-body-half">
+                    <h3>Description</h3>
+                    <p>
                       A protective layer on your vehicle's surface that repels water, 
                       dirt, and contaminants, and UV rays, with insane gloss and shine 
-                      for 3-5 years (Paint + Glass)
-                    </li>
-                  </ul><br />
-                  <p>
-                    Includes free quarterly washes to maintain the new appearance and 
-                    longevity of coating. Also includes annual decontamination and topper 
-                    to get the most life out of your coating, ensuring it preforms like 
-                    new as long as possible.
-                  </p>
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
-                    <button id="book-button">Book Complete Coating</button>
-                  </a>
+                      for 3-5 years.<br />
+                      (Paint + Glass)
+                    </p>
+                  </span>
+
+                  <span class="dropdown-body-half">
+                    <h3>Includes</h3>
+                    <ul>
+                      <li>Hand wash & dry</li>
+                      <li>Wheel cleaning</li>
+                      <li>1 stage paint correction on all paint & glass</li> 
+                      <li>
+                        <em>Free quarterly washes</em>
+                      </li>
+                      <li>
+                        <em>Free annual decontamination and topper</em>
+                      </li>
+                    </ul>
+                  </span>
+
+                  <span class="dropdown-body-full">
+                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
+                      <button id="book-button">Book Complete Coating</button>
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -338,11 +387,17 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  (Only available if the entire car is receiving a ceramic coat)
-                  <br />
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
-                    <button id="book-button">Book Wheel Wash</button>
-                  </a>   
+                  <span>
+                    <h3>Disclaimer</h3>
+                    <p>
+                      Only available if the entire car receives a ceramic coating.
+                    </p>
+                  </span>
+                  <span class="dropdown-body-full">
+                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
+                      <button id="book-button">Book Wheel Wash</button>
+                    </a>   
+                  </span>
                 </div>
               </div>
             </div>                            
@@ -370,15 +425,24 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <ul>
-                    <li>Must include an exterior wash & decontamination (Price included)</li>
-                    <li>1-step polish to enhance gloss & reduce minor defects</li>
-                    <li>Ceramic coating, sealant, or wax required after</li>
-                  </ul>
-                  <br />
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
-                    <button id="book-button">Book Paint Enhancement</button>
-                  </a>   
+                  <span class="dropdown-body-half">
+                    <h3>Disclaimer</h3>
+                    <p>Must include an exterior wash & decontamination (price included).</p>
+                  </span>
+
+                  <span class="dropdown-body-half">
+                    <h3>Includes</h3>
+                    <ul>
+                      <li>1-step polish to enhance gloss & reduce minor defects</li>
+                      <li>Ceramic coating, sealant, or wax required after</li>
+                    </ul>
+                  </span>
+                  
+                  <span class="dropdown-body-full">
+                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
+                      <button id="book-button">Book Paint Enhancement</button>
+                    </a>   
+                  </span>
                 </div>
               </div>
             </div>
@@ -394,16 +458,25 @@
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
-                  <ul>
-                    <li>Must include an exterior wash & decontamination (Price included)</li>
-                    <li>2-step polish to eliminate 80-85% of defects </li>
-                    <li>Restore shine and gloss</li>
-                    <li>Ceramic coating, sealant, or wax required after</li>
-                  </ul>
-                  <br />
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
-                    <button id="book-button">Book Paint Correction</button>
-                  </a>   
+                  <span class="dropdown-body-half">
+                    <h3>Disclaimer</h3>
+                    <p>Must include an exterior wash & decontamination (price included).</p>
+                  </span>
+
+                  <span class="dropdown-body-half">
+                    <h3>Includes</h3>
+                    <ul>
+                      <li>2-step polish to eliminate 80-85% of defects </li>
+                      <li>Restore shine and gloss</li>
+                      <li>Ceramic coating, sealant, or wax required after</li>
+                    </ul>
+                  </span>
+
+                  <span class="dropdown-body-full">
+                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
+                      <button id="book-button">Book Paint Correction</button>
+                    </a>   
+                  </span>
                 </div>
               </div>
             </div>                                 
