@@ -53,16 +53,17 @@
       .dropdown {
         width: 100%;
         border: 1px solid var(--gold);
-        transition: 2s;
-      }
-      .dropdown:hover {
-        border: 1px solid white;
+        border-radius: 1.25rem;
+        transition: 0.5s;
+        user-select: none;
       }
 
       /** Prevent nested dropdowns from having borders */
       .dropdown .dropdown {
         border-left: none;
         border-right: none;
+        border-bottom: none;
+        border-radius: 0rem;
       }
 
       .dropdown-header {
@@ -105,12 +106,6 @@
         max-height: 2000px;
       }
 
-      /**
-        TODO:
-          - desktop view should be FLEX ROW
-          - mobile view should be normal columns
-          - get rid of double border on dropdowns if nested
-      */
       .dropdown-body {
         display: flex;
         flex-direction: row;
@@ -118,12 +113,12 @@
         align-items: flex-start;
         flex-wrap: wrap;
         margin: 1rem 1rem 1.5rem 6rem;
+        user-select: text;
       }
 
       .dropdown-body p {
         padding-right: 4rem;
       }
-
       .dropdown-body-half {
         flex-basis: 50%;
       }
@@ -137,6 +132,9 @@
           width: 100%;
         }
 
+        h1 {
+          font-size: 1.75rem;
+        }
         h2 {
           font-size: 1.5rem;
         }
@@ -146,7 +144,20 @@
         }
         .dropdown-body {
           margin: 1rem 1rem 1.5rem 3rem;
+          flex-direction: column;
         }
+        .dropdown-body span:not(:first-child) {
+          margin-top: 1.5rem;
+        }
+        .dropdown-body p {
+          padding-right: 0rem;
+        }
+        .book-link {
+          padding: 0;
+          margin: 0;
+          align-self: center;
+        }
+        
       }
     </style>
   </head>

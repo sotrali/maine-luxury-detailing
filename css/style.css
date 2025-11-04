@@ -44,7 +44,7 @@ header {
 .navLink {
   color: var(--gold);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   transition: color 0.5s ease;
 }
 
@@ -181,16 +181,17 @@ footer {
     display: flex;
     flex-direction: column;
     position: fixed;
-    gap: 1rem;
+    gap: 2rem;
 
     padding: 2rem 0;
 
-    top: -12rem;
+    top: -20rem;
     left: 0;
     width: 100%;
 
-    font-size: 1rem;
+    font-size: 2rem;
     text-align: center;
+
     background-color: var(--black);
     transition: top 0.5s ease;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);

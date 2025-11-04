@@ -12,11 +12,48 @@
     <link href="css/dropdown.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
     <style>
-      .info-container {
-        background-color: var(--gold);
+      hr {
+        background-color: black;
+        height: 4px;
+        width: 75%;
+      }
+
+      .info-box {
         max-width: 80%;
         width: 80%;
+        padding: 2rem 4rem;;
         border-radius: 4rem;
+
+        background-color: var(--gold);
+      }
+      .info-box h1, p {
+        color: black;
+      }
+
+      .info-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+      }
+
+      .info-flex:nth-child(1) {
+        width: 30%;
+      }
+      .info-flex:nth-child(2) {
+        width: 60%;
+      }
+
+      /** MOBILE */
+      @media screen and (max-width: 850px) {
+
+        .info-flex {
+          flex-direction: column;
+          width: 100%;
+        }
+        .info-flex section {
+          width: 100%;
+        }
       }
 
     </style>
@@ -48,22 +85,22 @@
     </header>
 
     <main id="main-content">
-      <section>
-        <h1 style="margin-bottom: 7rem">Ceramic Coating</h1>
-        <div id="reviewContainer"></div>
-      </section>
       
-      <section class="info-container">
+      <section class="info-box">
+        <h1><em>All</em> Ceramic Coatings Include</h1>
+        <hr />
+        <p>testing</p>
       </section>
 
-      <div style="display: flex; flex-direction: row; justify-content: space-between; width: 80%;">
-          <section class="info-container" style="width: 30%;">
+      <div class="info-flex">
+        <section class="info-box">
+            
           </section>
 
-          <section class="info-container" style="width: 60%;">
+          <section class="info-box">
           </section>
       </div>
-
     </main>
+    <script src="js/hamburger.js"></script>
   </body>
 </html>
