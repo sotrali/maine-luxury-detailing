@@ -52,10 +52,13 @@
 
       .dropdown {
         width: 100%;
-        border: 1px solid var(--gold);
+        border: 2px solid var(--gold);
         border-radius: 1.25rem;
         transition: 0.5s;
         user-select: none;
+      }
+      .dropdown:hover {
+        border: 2px solid white;
       }
 
       /** Prevent nested dropdowns from having borders */
@@ -63,7 +66,7 @@
         border-left: none;
         border-right: none;
         border-bottom: none;
-        border-radius: 0rem;
+        border-radius: 1.25rem 1.25rem 0 0;
       }
 
       .dropdown-header {

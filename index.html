@@ -16,24 +16,22 @@
 
       main {
         min-height: 530px; /** to make sure footer doesn't overlap hero */
-        gap: 5.5rem;
+        gap: 2rem;
       }
 
       #hero-image {
-        height: 600px;
+        height: 500px;
         width: 100%;
-        background: url("assets/img/aden-desktop.jpg") 70% 10% / 100% no-repeat;
-        position: absolute;
+        background: url("assets/img/aden-desktop.jpg") 70% 25% / 100% no-repeat;
+        /** position: absolute; 
         top: 0px;
         left: 0px;
-
-        z-index: -1;
+        z-index: -1;*/
       }
 
       #intro {
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.8);
-        width: 40%;
+        width: 80%;
         /** padding: 3rem 4rem 4rem 4rem; */
 
         padding-bottom: 2rem;
@@ -71,7 +69,6 @@
       #book-link {
         display: block;
         width: 50%;
-        margin-top: 5rem;
       }
 
       h2 {
@@ -83,10 +80,11 @@
         #hero-image {
           background: url("assets/img/aden-mobile.jpg") center 10% / 100%
             no-repeat;
+          height: 300px;
         }
 
         main {
-          gap: 0;
+          gap: 2rem;
         }
 
         #intro {
@@ -99,7 +97,6 @@
           width: 85%;
         }
         #book-link {
-          margin-top: 2.5rem;
         }
       }
     </style>
@@ -145,7 +142,7 @@
         id="book-link"
       >
         <button id="book-button">BOOK NOW</button>
-      </a>
+      </a> 
 
       <section id="FAQ">
         <h1 style="margin-bottom: 2rem">FAQ</h1>
