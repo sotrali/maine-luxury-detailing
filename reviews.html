@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -10,12 +9,16 @@
     <title>Luxury Detailing Maine</title>
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
+
+    <!-- IMAGE SLIDER CSS IMPORT -->
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
     <style>
       /** REVIEWS */
       #reviewContainer {
         display: flex;
         flex-wrap: wrap;
-        gap: 5rem;
+        gap: 3rem;
 
         align-items: center;
         justify-content: center;
@@ -25,15 +28,15 @@
       /** REVIEW CARD */
       .review-card {
         padding: 1rem;
+        border: 2px solid var(--gold);
         border-radius: 1rem;
 
-        transition: 1s ease;
-        box-shadow: 0px 0px 25px var(--light-gold);
+        transition: 0.5s ease;
         color: white;
       }
 
       .review-card:hover {
-        box-shadow: 0px 0px 25px var(--gold);
+        border: 2px solid white;
       }
 
       .review-card-head {
@@ -59,10 +62,38 @@
       }
 
       /** GALLERY */
+      #gallery {
+        min-width: 100%;
+      }
       #galleryPhotos {
         display: flex;
+        min-width: 100%;
         flex-direction: column;
         align-items: center;
+      }
+
+      /** JUXTAPOSE STUFF **/
+      a.jx-knightlab div.knightlab-logo {
+        visibility: hidden !important;
+        display: none !important;
+      }
+
+      a.jx-knightlab span.juxtapose-name {
+        visibility: hidden !important;
+        display: none !important;
+      }
+      .juxtapose img {
+        border-radius: 2rem;
+      }
+      div.jx-slider {
+        color: var(--gold) !important;
+      }
+
+      div.jx-arrow.jx-left {
+        border-color: transparent white transparent transparent;
+      }
+      div.jx-arrow.jx-right {
+        border-color: transparent transparent transparent white;
       }
 
       /** BEFORE / AFTER IMAGES */
@@ -140,7 +171,6 @@
           gap: 2rem;
         }
 
-
         .before-after-pair, .before-img, .after-img-container {
           width: 400px;
         }
@@ -170,6 +200,9 @@
         }
       }
     </style>
+
+
+
   </head>
 
   <body>
@@ -204,52 +237,25 @@
         <div id="reviewContainer"></div>
       </section>
 
+     
       <section id="gallery">
         <h1 style="margin-bottom: 2rem">Gallery</h1>
         <div id="galleryPhotos">
 
-          <figure class="before-after-pair">
-            <span class="before-img-container">
-              <figcaption class="img-state-text">before</figcaption>
-              <img class="before-img" src="assets/img/before1.jpg" 
-                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
-              </img>
-            </span>
-            <span class="after-img-container">
-              <figcaption class="img-state-text">after</figcaption>
-              <img class="after-img" src="assets/img/after1.jpg"
-                alt="The same trunk after it has been restored to like-new condition."></img>
-            </span>
-          </figure>
 
-          <figure class="before-after-pair">
-            <span class="before-img-container">
-              <figcaption class="img-state-text">before</figcaption>
-              <img class="before-img" src="assets/img/before1.jpg" 
-                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
-              </img>
-            </span>
-            <span class="after-img-container">
-              <figcaption class="img-state-text">after</figcaption>
-              <img class="after-img" src="assets/img/after1.jpg"
-                alt="The same trunk after it has been restored to like-new condition."></img>
-            </span>
-          </figure>
+          <div class="juxtapose" style="width: 45%;">
+            <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
+            <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
+          </div>
 
-          <figure class="before-after-pair">
-            <span class="before-img-container">
-              <figcaption class="img-state-text">before</figcaption>
-              <img class="before-img" src="assets/img/before1.jpg" 
-                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
-              </img>
-            </span>
-            <span class="after-img-container">
-              <figcaption class="img-state-text">after</figcaption>
-              <img class="after-img" src="assets/img/after1.jpg"
-                alt="The same trunk after it has been restored to like-new condition."></img>
-            </span>
-          </figure>
+          <div class="juxtapose" style="width: 45%;">
+            <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
+            <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
+          </div>
 
+
+          <!-- KEPT AS REMINDER -->
+          <!-- 
           <figure class="before-after-pair">
             <span class="before-img-container">
               <figcaption class="img-state-text">before</figcaption>
@@ -263,6 +269,7 @@
                 alt="The same trunk after it has been restored to like-new condition."></img>
             </span>
           </figure>
+          -->
 
         </div>
       </section>
@@ -347,5 +354,8 @@
         insertReviews(reviewData);
       };
     </script>
+    
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+
   </body>
 </html>

@@ -21,6 +21,7 @@
       }
 
       #book-button {
+        width: 100%;
         background-color: var(--black);
         color: var(--gold);
 
@@ -44,8 +45,7 @@
       
       #book-link {
         display: block;
-        width: 50%;
-        margin-top: 5rem;
+        width: 100%;
       } 
 
       /** Dropdown Menu Style Overrides */
@@ -104,9 +104,26 @@
       .dropdown-content {
         text-align: left;
         border: none;
+        /** closing speed */
+        transition: max-height .3s ease;
       }
+      /** service section dropdowns that are v long */
+      .dropdown-content.open-longest {
+        max-height: 1100px;
+        /** opening speed */
+        transition: max-height 1s ease;
+      }
+      /** service section dropdowns */
+      .dropdown-content.open-long {
+        max-height: 1100px;
+        /** opening speed */
+        transition: max-height 1s ease;
+      }
+      /** dropdowns holding specific service info */
       .dropdown-content.open {
-        max-height: 2000px;
+        max-height: 400px;
+        /** opening speed */
+        transition: max-height .5s ease;
       }
 
       .dropdown-body {
@@ -115,7 +132,7 @@
         justify-items: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
-        margin: 1rem 1rem 1.5rem 6rem;
+        margin: 1rem 1rem 0rem 6rem;
         user-select: text;
       }
 
@@ -125,9 +142,12 @@
       .dropdown-body-half {
         flex-basis: 50%;
       }
-      .dropdown-body-full {
-        flex-basis: 100%;
+      .dropdown-button {
+        margin: auto;
+        margin-bottom: 1.5rem;
+        width: 80%;
       }
+
       /** mobile rules */
       /** MOBILE */
       @media screen and (max-width: 850px) {
@@ -145,8 +165,28 @@
         .dropdown-header {
           padding: 1.5rem 1rem 2rem 1rem;
         }
+
+        /** service section dropdowns that are v long */
+        .dropdown-content.open-longest {
+          max-height: 1700px;
+          /** opening speed */
+          transition: max-height 1s ease;
+        }
+        /** service section dropdowns */
+        .dropdown-content.open-long {
+          max-height: 1450px;
+          /** opening speed */
+          transition: max-height 1s ease;
+        }
+        /** dropdowns holding specific service info */
+        .dropdown-content.open {
+          max-height: 600px;
+          /** opening speed */
+          transition: max-height .5s ease;
+        }
+
         .dropdown-body {
-          margin: 1rem 1rem 1.5rem 3rem;
+          margin: 1rem 1rem 0rem 3rem;
           flex-direction: column;
         }
         .dropdown-body span:not(:first-child) {
@@ -154,11 +194,6 @@
         }
         .dropdown-body p {
           padding-right: 0rem;
-        }
-        .book-link {
-          padding: 0;
-          margin: 0;
-          align-self: center;
         }
         
       }
@@ -195,7 +230,7 @@
 
       <!-- SERVICE PACKAGE SECTION -->
       <section id="packages">
-        <div class="dropdown">
+        <div class="dropdown long">
           <div class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Service Packages</h1>
@@ -235,15 +270,14 @@
                       <li>Light door jam cleaning</li>
                     </ul>
                   </span>
+                </div>
 
-                  <span class="dropdown-body-full">
-                    <a target="_blank" class="book-link" 
-                      href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
-                    >
-                      <button id="book-button">Book Level One Package Now</button>
-                    </a>
-                  </span>
-
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" 
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
+                  >
+                    <button id="book-button">Book Level One Package Now</button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -281,30 +315,31 @@
                       <li><em>3 to 6 month ceramic paint sealant: gloss, protection, hydrophobic & self-cleaning properties</em></li>
                     </ul>
                   </span>
-
-                  <span class="dropdown-body-full">
-                    <a target="_blank" class="book-link" 
-                      href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
-                    >
-                      <button id="book-button">Book Level Two Package Now</button>
-                    </a>
-                  <span>
                 </div>
+
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" 
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
+                  >
+                    <button id="book-button">Book Level Two Package Now</button>
+                  </a>
+                <div>
               </div>
             </div> 
-
           </div>
         </div>
       </section>
 
       <!-- CERAMIC COATING SECTION -->
       <section id="ceramic">
-        <div class="dropdown">
+        <div class="dropdown longest">
           <div class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Ceramic Coating</h1>
           </div>
           <div class="dropdown-content">
+
+            question for aden: should clicking this just bring user to "ceramic coating" page?
 
             <div class="dropdown">
               <div class="dropdown-header" onclick="toggleDropdown(this)">
@@ -335,12 +370,11 @@
                       <li>1 Step polish to remove light swirls and enhance gloss</li>
                     </ul>
                   </span>
-
-                  <span class="dropdown-body-half">
-                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
-                      <button id="book-button">Book Elite Coating</button>
-                    </a>
-                  </span>
+                </div>
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
+                    <button id="book-button">Book Elite Coating</button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -380,12 +414,11 @@
                       </li>
                     </ul>
                   </span>
-
-                  <span class="dropdown-body-full">
-                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
-                      <button id="book-button">Book Complete Coating</button>
-                    </a>
-                  </span>
+                </div>
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
+                    <button id="book-button">Book Complete Coating</button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -407,11 +440,11 @@
                       Only available if the entire car receives a ceramic coating.
                     </p>
                   </span>
-                  <span class="dropdown-body-full">
-                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
-                      <button id="book-button">Book Wheel Wash</button>
-                    </a>   
-                  </span>
+                </div>
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
+                    <button id="book-button">Book Wheel Wash</button>
+                  </a>   
                 </div>
               </div>
             </div>                            
@@ -421,7 +454,7 @@
 
       <!-- POLISHING + PAINT CORRECTION SECTION -->
       <section id="polish">
-        <div class="dropdown">
+        <div class="dropdown long">
           <div class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Polishing & Paint Correction</h1>
@@ -451,12 +484,11 @@
                       <li>Ceramic coating, sealant, or wax required after</li>
                     </ul>
                   </span>
-                  
-                  <span class="dropdown-body-full">
-                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
-                      <button id="book-button">Book Paint Enhancement</button>
-                    </a>   
-                  </span>
+                </div>
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
+                    <button id="book-button">Book Paint Enhancement</button>
+                  </a>   
                 </div>
               </div>
             </div>
@@ -485,22 +517,23 @@
                       <li>Ceramic coating, sealant, or wax required after</li>
                     </ul>
                   </span>
-
-                  <span class="dropdown-body-full">
-                    <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
-                      <button id="book-button">Book Paint Correction</button>
-                    </a>   
-                  </span>
+                </div>
+                <div class="dropdown-button">
+                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
+                    <button id="book-button">Book Paint Correction</button>
+                  </a>   
                 </div>
               </div>
             </div>                                 
           </div>
         </div>
       </section>
+
+      wip below
       
       <!-- EXTERIOR DETAILING SECTION -->
       <section id="exterior">
-        <div class="dropdown">
+        <div class="dropdown long">
           <div class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Exterior Detailing</h1>
@@ -568,7 +601,7 @@
 
       <!-- INTERIOR DETAILING SECTION -->
       <section id="interior">
-        <div class="dropdown">
+        <div class="dropdown long">
           <div class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Interior Detailing</h1>
@@ -653,11 +686,23 @@
         let body = headerClicked.nextElementSibling;
         let arrow = headerClicked.children[0];
 
-        headerClicked.parentElement.classList.toggle("open");
-        body.classList.toggle("open");
-        arrow.classList.toggle("open");
-      }
+        if (headerClicked.parentElement.classList.contains("longest")) {
+          headerClicked.parentElement.classList.toggle("open-longest");
+          body.classList.toggle("open-longest");
+          arrow.classList.toggle("open-longest");
+        }
+        else if (headerClicked.parentElement.classList.contains("long")) {
+          headerClicked.parentElement.classList.toggle("open-long");
+          body.classList.toggle("open-long");
+          arrow.classList.toggle("open-long");
+        }
+        else {
+          headerClicked.parentElement.classList.toggle("open");
+          body.classList.toggle("open");
+          arrow.classList.toggle("open");
+        }
 
+      }
     </script>
   </body>
 </html>
