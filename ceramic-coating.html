@@ -43,22 +43,14 @@
       }
       .info-box h2 {
         color: white;
+        /** TODO: figure out how to style these guys better */
       }
       .info-flex {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
         gap: 2rem;
         max-width: 80%;
-      }
-      .info-flex:nth-child(1) {
-        max-width: 20%;
-        width: 20%;
-      }
-      .info-flex:nth-child(2) {
-        max-width: 80%;
-        width: 80%;
       }
 
       #allIncludeList {
@@ -147,7 +139,7 @@
       </section>
 
       <div class="info-flex">
-        <section class="info-box">
+        <section style="flex-basis: max-content; flex-grow: 1;" class="info-box">
           <h1>Choose your <em>Package</em></h1>
           <hr />
           <div style="width: 75%;">
@@ -171,7 +163,7 @@
           </div>
         </section>
 
-        <section class="info-box">
+        <section style="flex-basis: min-content; flex-grow: 1;" class="info-box">
           <h1>Wheel Wash <em>Add-on</em></h1>
           <hr />
           <ul>

@@ -21,10 +21,10 @@
       }
 
       #book-button {
-        width: 100%;
         background-color: var(--black);
         color: var(--gold);
-
+        width: 50%;
+      
         border: 1px solid var(--dark-gold);
         border-radius: 5rem;
 
@@ -46,6 +46,8 @@
       #book-link {
         display: block;
         width: 100%;
+
+        user-select: none;
       } 
 
       /** Dropdown Menu Style Overrides */
@@ -75,8 +77,14 @@
         gap: 1rem;
         text-align: left;
 
+        background-color: var(--black);
+        color: var(--gold);
+        width: 100%;
+        height: 100%;
+
         padding: 1.5rem 4rem 2rem 4rem;
         border: none;
+        border-radius: 1.25rem;
 
         transition: 2s;
       }
@@ -102,6 +110,7 @@
       }
 
       .dropdown-content {
+        visibility: hidden;
         text-align: left;
         border: none;
         /** closing speed */
@@ -109,18 +118,21 @@
       }
       /** service section dropdowns that are v long */
       .dropdown-content.open-longest {
+        visibility: visible;
         max-height: 1100px;
         /** opening speed */
         transition: max-height 1s ease;
       }
       /** service section dropdowns */
       .dropdown-content.open-long {
+        visibility: visible;
         max-height: 1100px;
         /** opening speed */
         transition: max-height 1s ease;
       }
       /** dropdowns holding specific service info */
       .dropdown-content.open {
+        visibility: visible;
         max-height: 400px;
         /** opening speed */
         transition: max-height .5s ease;
@@ -230,22 +242,22 @@
 
       <!-- SERVICE PACKAGE SECTION -->
       <section id="packages">
-        <div class="dropdown long">
-          <div class="dropdown-header" onclick="toggleDropdown(this)">
+        <div class="dropdown long" aria-expanded="false">
+          <button class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Service Packages</h1>
-          </div>
+          </button>
           <div class="dropdown-content">
 
             <!-- LEVEL ONE PACKAGE -->
-            <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Level One</h2>
                   <p>Give your car the time, love, and care it deserves.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -273,7 +285,7 @@
                 </div>
 
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" 
+                  <a target="_blank" class="book-link" tabindex="-1" 
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
                   >
                     <button id="book-button">Book Level One Package Now</button>
@@ -283,14 +295,14 @@
             </div>
 
             <!-- LEVEL TWO PACKAGE -->
-            <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Level Two</h2>
                   <p>Tell the world you're proud of your car.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -318,12 +330,12 @@
                 </div>
 
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" 
+                  <a target="_blank" class="book-link" tabindex="-1" 
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
                   >
                     <button id="book-button">Book Level Two Package Now</button>
                   </a>
-                <div>
+                </div>
               </div>
             </div> 
           </div>
@@ -332,23 +344,24 @@
 
       <!-- CERAMIC COATING SECTION -->
       <section id="ceramic">
-        <div class="dropdown longest">
-          <div class="dropdown-header" onclick="toggleDropdown(this)">
+        <div class="dropdown longest" aria-expanded="false">
+          <button class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Ceramic Coating</h1>
-          </div>
+          </button>
           <div class="dropdown-content">
 
             question for aden: should clicking this just bring user to "ceramic coating" page?
 
-            <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- ELITE COATING -->
+            <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Elite Ceramic Coating</h2>
                   <p>Bring out and protect your car's shine for years to come.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -372,21 +385,23 @@
                   </span>
                 </div>
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
                     <button id="book-button">Book Elite Coating</button>
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- COMPLETE COATING -->
+            <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Complete Ceramic Coating</h2>
                   <p>Like a factory reset on your cars exterior, but 10x better.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -416,21 +431,23 @@
                   </span>
                 </div>
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
                     <button id="book-button">Book Complete Coating</button>
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- WHEEL WASH -->
+            <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Wheel Wash</h2>
                   <p>Make your wheels glow and shine.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -442,7 +459,8 @@
                   </span>
                 </div>
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
                     <button id="book-button">Book Wheel Wash</button>
                   </a>   
                 </div>
@@ -454,21 +472,22 @@
 
       <!-- POLISHING + PAINT CORRECTION SECTION -->
       <section id="polish">
-        <div class="dropdown long">
-          <div class="dropdown-header" onclick="toggleDropdown(this)">
+        <div class="dropdown long" aria-expanded="false">
+          <button class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Polishing & Paint Correction</h1>
-          </div>
+          </button>
           <div class="dropdown-content">
 
-            <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- PAINT ENHANCEMENT -->
+            <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Paint Enhancement</h2>
                   <p>Bring back that gloss you know and love.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -486,21 +505,23 @@
                   </span>
                 </div>
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
                     <button id="book-button">Book Paint Enhancement</button>
                   </a>   
                 </div>
               </div>
             </div>
 
-             <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- PAINT CORRECTION -->
+             <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Paint Correction</h2>
                   <p>Give your paint a breath of fresh air.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -519,7 +540,8 @@
                   </span>
                 </div>
                 <div class="dropdown-button">
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
                     <button id="book-button">Book Paint Correction</button>
                   </a>   
                 </div>
@@ -533,21 +555,22 @@
       
       <!-- EXTERIOR DETAILING SECTION -->
       <section id="exterior">
-        <div class="dropdown long">
-          <div class="dropdown-header" onclick="toggleDropdown(this)">
+        <div class="dropdown long" aria-expanded="false">
+          <button class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Exterior Detailing</h1>
-          </div>
+          </button>
           <div class="dropdown-content">
 
-             <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- LEVEL ONE EXTERIOR -->
+             <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Level One Exterior</h2>
                   <p>A safe and meticulous hand wash to reveal the true shine of your car.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -558,21 +581,23 @@
                     <li>Window cleaning</li>
                     <li>Light door jam cleaning</li>
                   </ul></br>
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=TFqzf6t8BKh7vTGxfNBy&sku=Czg1xQxpwwf5ninBF6xq">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=TFqzf6t8BKh7vTGxfNBy&sku=Czg1xQxpwwf5ninBF6xq">
                     <button id="book-button">Book Level One Exterior</button>
                   </a>   
                 </div>
               </div>
             </div>
 
-             <div class="dropdown">
-              <div class="dropdown-header" onclick="toggleDropdown(this)">
+            <!-- LEVEL TWO EXTERIOR -->
+             <div class="dropdown" aria-expanded="false">
+              <button class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
                   <h2>Level Two Exterior</h2>
                   <p>Most popular.</p>
                 </div>
-              </div>
+              </button>
               <div class="dropdown-content">
                 <hr>
                 <div class="dropdown-body">
@@ -589,7 +614,8 @@
                     <li>Clay mitt to remove embedded contamination</li>
                     <li>3 to 6 month ceramic paint sealant: gloss, protection, hydrophobic & self-cleaning properties</li>
                   </ul></br>
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI">
                     <button id="book-button">Book Level Two Exterior</button>
                   </a>   
                 </div>
@@ -601,14 +627,15 @@
 
       <!-- INTERIOR DETAILING SECTION -->
       <section id="interior">
-        <div class="dropdown long">
-          <div class="dropdown-header" onclick="toggleDropdown(this)">
+        <div class="dropdown long" aria-expanded="false">
+          <button class="dropdown-header" onclick="toggleDropdown(this)">
             <span class="dropdown-arrow">▼</span> 
             <h1>Interior Detailing</h1>
-          </div>
+          </button>
           <div class="dropdown-content"> 
 
-            <div class="dropdown">
+            <!-- LEVEL ONE INTERIOR -->
+            <div class="dropdown" aria-expanded="false">
               <div class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
@@ -626,14 +653,16 @@
                     <li>Interior & exterior window cleaning</li>
                     <li>Crack & crevice cleaning</li>
                   </ul></br>
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/iy5yKtAhm0O0w0P05acA?productServiceId=3LCNMgeB58hjFwhg58BU&sku=MuCpgSMV0hU4sUdjAPBi">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/iy5yKtAhm0O0w0P05acA?productServiceId=3LCNMgeB58hjFwhg58BU&sku=MuCpgSMV0hU4sUdjAPBi">
                     <button id="book-button">Book Level One Interior</button>
                   </a>   
                 </div>
               </div>
             </div>
 
-             <div class="dropdown">
+            <!-- LEVEL TWO INTERIOR -->
+             <div class="dropdown" aria-expanded="false">
               <div class="dropdown-header" onclick="toggleDropdown(this)">
                 <span class="dropdown-arrow">▼</span>
                 <div>
@@ -652,7 +681,8 @@
                     <li>Crack & crevice cleaning</li>
                     <li>6 month interior protection (Spills, UV, less dust, less cleaning, and plastic rejuvenation)</li>
                   </ul></br>
-                  <a target="_blank" class="book-link" href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI">
+                  <a target="_blank" class="book-link" tabindex="-1"
+                    href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI">
                     <button id="book-button">Book Level Two Interior</button>
                   </a>   
                 </div>
@@ -683,24 +713,28 @@
     <script src="js/hamburger.js"></script>
     <script>
       function toggleDropdown(headerClicked) {
+        let dropdown = headerClicked.parentElement;
         let body = headerClicked.nextElementSibling;
         let arrow = headerClicked.children[0];
 
-        if (headerClicked.parentElement.classList.contains("longest")) {
-          headerClicked.parentElement.classList.toggle("open-longest");
+        if (dropdown.classList.contains("longest")) {
+          dropdown.classList.toggle("open-longest");
           body.classList.toggle("open-longest");
-          arrow.classList.toggle("open-longest");
+          arrow.classList.toggle("open");
         }
-        else if (headerClicked.parentElement.classList.contains("long")) {
-          headerClicked.parentElement.classList.toggle("open-long");
+        else if (dropdown.classList.contains("long")) {
+          dropdown.classList.toggle("open-long");
           body.classList.toggle("open-long");
-          arrow.classList.toggle("open-long");
+          arrow.classList.toggle("open");
         }
         else {
-          headerClicked.parentElement.classList.toggle("open");
+          dropdown.classList.toggle("open");
           body.classList.toggle("open");
           arrow.classList.toggle("open");
         }
+
+        let isOpen = dropdown.className.includes("open");
+        dropdown.setAttribute('aria-expanded', isOpen);
 
       }
     </script>
