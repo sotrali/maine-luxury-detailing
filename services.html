@@ -54,13 +54,13 @@
 
       .dropdown {
         width: 100%;
-        border: 2px solid var(--gold);
+        border: 1px solid var(--light-gold);
         border-radius: 1.25rem;
         transition: 0.5s;
         user-select: none;
       }
       .dropdown:hover {
-        border: 2px solid white;
+        border: 1px solid white;
       }
 
       /** Prevent nested dropdowns from having borders */
@@ -107,6 +107,10 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      hr {
+        border-color: var(--gold);
       }
 
       .dropdown-content {
@@ -217,7 +221,7 @@
 
     <header>
       <div class="banner" role="banner">
-        <a href="index.html" class="logo" aria-label="Company Logo">LD</a>
+        <a href="index.html" class="logo" aria-label="Company Logo">LUXURY DETAILING</a>
 
         <button
           id="hamburger"

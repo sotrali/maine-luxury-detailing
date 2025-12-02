@@ -37,8 +37,12 @@ header {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  transition: color 0.5s ease;
   color: var(--gold);
   text-decoration: none;
+}
+.logo:hover {
+  color: white;
 }
 
 .navLink {
