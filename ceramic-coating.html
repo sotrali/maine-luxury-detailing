@@ -18,8 +18,15 @@
         margin: 1rem;
       }
 
-
-
+      .info-flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        max-width: 80%;
+      }
 
       .info-box {
         background: 
@@ -29,7 +36,7 @@
 
         max-width: 80%;
         width: 80%;
-        padding: 2rem 4rem;;
+        padding: 2rem 4rem;
         border-radius: 4rem;
         height: min-content;
 
@@ -45,15 +52,16 @@
         color: white;
         /** TODO: figure out how to style these guys better */
       }
-      .info-flex {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
-        max-width: 80%;
+
+      #packages {
+        max-width: 60%;
+      }
+      #wheel-wash {
+        max-width: 35%;
       }
 
-      #allIncludeList {
+      
+      .checkMarkList {
         display: flex; 
         flex-wrap: wrap;
         align-items: center;
@@ -61,14 +69,14 @@
         
         max-width: 100%;
       }
-      #allIncludeList li {
+      .checkMarkList li {
         text-wrap: nowrap;
         list-style-position: inside;
         padding: 0rem;
         margin: .5rem .5rem;
       }
       
-     #allIncludeList li::marker {
+     .checkMarkList li::marker {
         content: "✓ ";
      }
 
@@ -84,8 +92,13 @@
      }
 
       /** MOBILE */
-      @media screen and (max-width: 850px) {
-
+      @media screen and (max-width: 1100px) {
+        #packages {
+          max-width: 100%;
+        }
+        #wheel-wash {
+          max-width: 100%;
+        }
         .info-flex {
           flex-direction: column;
           align-items: center;
@@ -126,45 +139,38 @@
 
     <main id="main-content">
       
-      <section class="info-box" style="margin-bottom: 2rem;">
-        <h1><em>All</em> Ceramic Coatings Include</h1>
-        <hr />
-        <p>some headline details can go in here, then:</p>
-        <ul id="allIncludeList">
-          <li>3-5 years of protection</li>
-          <li>Hand wash</li>
-          <li>other detail</li>
-          <li>other detail</li>
-        </ul>
-      </section>
-
       <div class="info-flex">
-        <section style="flex-basis: max-content; flex-grow: 1;" class="info-box">
-          <h1>Choose your <em>Package</em></h1>
+        <section class="info-box" style="min-width: 100%; margin-bottom: 2rem;">
+          <h1><em>All</em> Ceramic Coatings Include</h1>
           <hr />
-          <div style="width: 75%;">
-            <ol>
-              <li>
-                <h2>Elite Ceramic Coating:</h2>
-                <ul>
-                  <li>elite detail one</li>
-                  <li>elite detail two</li>
-                </ul>
-              </li>
+          <p>some headline details can go in here, then:</p>
+          <ul class="checkMarkList">
+            <li>3-5 years of protection</li>
+            <li>Hand wash</li>
+            <li>other detail</li>
+            <li>other detail</li>
+          </ul>
+        </section>
 
-              <li>
-                <h2>Complete Ceramic Coating:</h2>
-                <ul>
-                  <li>complete detail one</li>
-                  <li>complete detail two</li>
-                </ul>
-              </li>
-            </ol> 
+        <section id="packages" class="info-box">
+          <h1>Choose Your Coating <em>Package</em></h1>
+          <hr />
+          <div>
+            <h2>Elite</h2>
+            <ul class="checkMarkList">
+              <li>elite detail one</li>
+              <li>elite detail two</li>
+            </ul>
+            <h2>Complete</h2>
+            <ul class="checkMarkList">
+              <li>complete detail one</li>
+              <li>complete detail two</li>
+            </ul>
           </div>
         </section>
 
-        <section style="flex-basis: min-content; flex-grow: 1;" class="info-box">
-          <h1>Wheel Wash <em>Add-on</em></h1>
+        <section id="wheel-wash" class="info-box">
+          <h1>Wheel Wash<br /><em>Add-on</em></h1>
           <hr />
           <ul>
             <li>wheel wash information 1</li>
