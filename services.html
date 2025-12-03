@@ -20,33 +20,31 @@
         margin-top: 1rem;
       }
 
-      #book-button {
+      .book-button {
         background-color: var(--black);
         color: var(--gold);
         width: 50%;
+        height: 4rem;
       
-        border: 1px solid var(--dark-gold);
+        border: 1px solid white;
         border-radius: 5rem;
 
         padding: .5rem 1rem;
-        margin: 1rem 0 0 0;
 
         font-size: 1rem;
+        font-weight: bold;
         text-decoration: none;
         transition: 0.5s ease;
       }
-      #book-button:hover {
-        cursor: pointer; background-color: #000;
+      .book-button:hover {
+        cursor: pointer;
         box-shadow: 0px 0px 15px var(--gold);
       }
-      #book-button:active {
+      .book-button:active {
         background-color: var(--gold);
       }
       
-      #book-link {
-        display: block;
-        width: 100%;
-
+      .book-link {
         user-select: none;
       } 
 
@@ -148,7 +146,9 @@
         justify-items: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
+
         margin: 1rem 1rem 0rem 6rem;
+
         user-select: text;
       }
 
@@ -159,9 +159,8 @@
         flex-basis: 50%;
       }
       .dropdown-button {
-        margin: auto;
-        margin-bottom: 1.5rem;
-        width: 80%;
+        width: 100%;
+        margin: 2rem 1rem 2.5rem 6rem;
       }
 
       /** mobile rules */
@@ -234,8 +233,8 @@
         </button>
 
         <nav>
-          <a class="navLink" role="navigation" href="services.html">Services</a>
           <a class="navLink" role="navigation" href="ceramic-coating.html">Ceramic Coating</a>
+          <a class="navLink" role="navigation" href="services.html">Services</a>
           <a class="navLink" role="navigation" href="reviews.html">Reviews</a>
           <a class="navLink" role="navigation" href="contact.html">About</a>
         </nav>
@@ -292,7 +291,7 @@
                   <a target="_blank" class="book-link" tabindex="-1" 
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
                   >
-                    <button id="book-button">Book Level One Package Now</button>
+                    <button class="book-button">Book Level One Package Now</button>
                   </a>
                 </div>
               </div>
@@ -337,7 +336,7 @@
                   <a target="_blank" class="book-link" tabindex="-1" 
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
                   >
-                    <button id="book-button">Book Level Two Package Now</button>
+                    <button class="book-button">Book Level Two Package Now</button>
                   </a>
                 </div>
               </div>
@@ -391,7 +390,7 @@
                 <div class="dropdown-button">
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
-                    <button id="book-button">Book Elite Coating</button>
+                    <button class="book-button">Book Elite Coating</button>
                   </a>
                 </div>
               </div>
@@ -437,7 +436,7 @@
                 <div class="dropdown-button">
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596">
-                    <button id="book-button">Book Complete Coating</button>
+                    <button class="book-button">Book Complete Coating</button>
                   </a>
                 </div>
               </div>
@@ -465,7 +464,7 @@
                 <div class="dropdown-button">
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS">
-                    <button id="book-button">Book Wheel Wash</button>
+                    <button class="book-button">Book Wheel Wash</button>
                   </a>   
                 </div>
               </div>
@@ -511,7 +510,7 @@
                 <div class="dropdown-button">
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h">
-                    <button id="book-button">Book Paint Enhancement</button>
+                    <button class="book-button">Book Paint Enhancement</button>
                   </a>   
                 </div>
               </div>
@@ -546,7 +545,7 @@
                 <div class="dropdown-button">
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F">
-                    <button id="book-button">Book Paint Correction</button>
+                    <button class="book-button">Book Paint Correction</button>
                   </a>   
                 </div>
               </div>
@@ -587,7 +586,7 @@
                   </ul></br>
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=TFqzf6t8BKh7vTGxfNBy&sku=Czg1xQxpwwf5ninBF6xq">
-                    <button id="book-button">Book Level One Exterior</button>
+                    <button class="book-button">Book Level One Exterior</button>
                   </a>   
                 </div>
               </div>
@@ -620,7 +619,7 @@
                   </ul></br>
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI">
-                    <button id="book-button">Book Level Two Exterior</button>
+                    <button class="book-button">Book Level Two Exterior</button>
                   </a>   
                 </div>
               </div>
@@ -659,7 +658,7 @@
                   </ul></br>
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/iy5yKtAhm0O0w0P05acA?productServiceId=3LCNMgeB58hjFwhg58BU&sku=MuCpgSMV0hU4sUdjAPBi">
-                    <button id="book-button">Book Level One Interior</button>
+                    <button class="book-button">Book Level One Interior</button>
                   </a>   
                 </div>
               </div>
@@ -687,7 +686,7 @@
                   </ul></br>
                   <a target="_blank" class="book-link" tabindex="-1"
                     href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI">
-                    <button id="book-button">Book Level Two Interior</button>
+                    <button class="book-button">Book Level Two Interior</button>
                   </a>   
                 </div>
               </div>
