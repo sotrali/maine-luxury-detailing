@@ -8,7 +8,8 @@
 
 /** COLOR VARIABLES */
 :root {
-  --black: #111111;
+  --black1: #111111;
+  --black: #191919;
   --gold: rgb(223, 200, 65);
   --dark-gold: rgb(158, 141, 44);
   --light-gold: rgba(255, 215, 0, 0.5);
@@ -58,9 +59,12 @@ header {
 }
 
 /** BODY TAGS */
+@font-face {
+  font-family: gontserrat;
+  src: url('../assets/fonts/gontserrat/Gontserrat-Bold.ttf');
+}
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
+  font-family: gontserrat, sans-serif;
   line-height: 1.6;
   color: #666;
   background-color: var(--black);
