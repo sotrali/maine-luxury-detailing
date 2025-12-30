@@ -3,12 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 
+  background-color: var(--black);
+
   letter-spacing: 0.01rem;
+}
+
+.jx-handle, .jx-arrow {
+  background-color: rgba(0,0,0,0);
 }
 
 /** COLOR VARIABLES */
 :root {
-  --black1: #111111;
+  --oldBlack: #111111;
   --black: #191919;
   --gold: rgb(223, 200, 65);
   --dark-gold: rgb(158, 141, 44);
@@ -17,7 +23,6 @@
 
 /** HEADER + NAV STYLING */
 header {
-  background-color: var(--black);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -60,31 +65,31 @@ header {
 
 /** BODY TAGS */
 @font-face {
-  font-family: gontserrat;
-  src: url('../assets/fonts/gontserrat/Gontserrat-Bold.ttf');
+  font-family: inter;
+  src: url('../assets/fonts/Inter.ttf');
 }
 body {
-  font-family: gontserrat, sans-serif;
+  font-family: inter, sans-serif;
   line-height: 1.6;
   color: #666;
-  background-color: var(--black);
 }
 
 main {
   display: flex;
+  gap: 5rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 
   text-align: center;
 
-  width: 100%;
+  min-width: 100%;
   padding: 0;
   margin: 0;
 }
 
 section {
-  max-width: 75%;
+  min-width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,7 +131,6 @@ footer {
 
   max-width: 90%;
 
-  background-color: var(--black);
   color: var(--gold);
 
   text-align: center;
@@ -199,7 +203,6 @@ footer {
     font-size: 2rem;
     text-align: center;
 
-    background-color: var(--black);
     transition: top 0.5s ease;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     z-index: -1;

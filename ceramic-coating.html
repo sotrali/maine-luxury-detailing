@@ -24,11 +24,11 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;
+        gap: 5rem;
 
-        max-width: 80%;
+        width: 90%;
 
-        margin-top: 2.5rem;
+        margin-top: 4rem;
       }
 
       .info-box {
@@ -37,11 +37,15 @@
             linear-gradient(to left, var(--gold), white, var(--gold)) border-box;
         border: 5px solid transparent;
 
-        max-width: 80%;
-        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+
+        min-width: auto;
+        width: auto;
         padding: 2rem 4rem;
         border-radius: 4rem;
-        height: min-content;
+        min-height: 20rem;
 
         /** border: 2px solid var(--gold);    **/
         transition: 1s ease;
@@ -57,10 +61,9 @@
       }
 
       #packages {
-        max-width: 60%;
+        flex-shrink: 1;
       }
       #wheel-wash {
-        max-width: 35%;
       }
 
       
@@ -105,7 +108,7 @@
         .info-flex {
           flex-direction: column;
           align-items: center;
-          width: 100%;
+          min-width: 90%;
         }
         .info-flex section {
           width: 100%;
@@ -158,17 +161,21 @@
         <section id="packages" class="info-box">
           <h1>Choose Your Coating <em>Package</em></h1>
           <hr />
-          <div>
-            <h2>Elite</h2>
-            <ul class="checkMarkList">
-              <li>elite detail one</li>
-              <li>elite detail two</li>
-            </ul>
-            <h2>Complete</h2>
-            <ul class="checkMarkList">
-              <li>complete detail one</li>
-              <li>complete detail two</li>
-            </ul>
+          <div style="width: 100%; display:flex; justify-content: space-around;">
+            <div>
+              <h2>Elite</h2>
+              <ul>
+                <li>elite detail one</li>
+                <li>elite detail two</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Complete</h2>
+              <ul>
+                <li>complete detail one</li>
+                <li>complete detail two</li>
+              </ul>
+            </div>
           </div>
         </section>
 
