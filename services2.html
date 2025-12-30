@@ -13,23 +13,60 @@
     <link href="css/hamburger.css" rel="stylesheet" />
     
     <style>
-      
+
       main {
-        max-width: 90%;
-        display: flex;
+        gap: 12rem;
       }
 
-
-      #tableOfContents {
+      #categoryLinks {
         display: flex;
-        flex-direction: row;
-        gap: 1rem;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 2rem;
+
+        margin-top: 2rem;
       }
 
-      #serviceListings {
-        align-self: flex-end;
-        width: 100%;
+      #servicesContainer {
+        width: 90%;
         height: 100%;
+      }
+      
+      #tableOfContents {
+        width: 90%;
+        margin-top: 5rem;
+      }
+
+      .card {
+        padding: 3rem;
+        border: 2px solid var(--gold);
+        border-radius: 1rem;
+
+        transition: 0.5s ease;
+        color: white;
+        width: 25%;
+      }
+      .card:hover {
+        border: 2px solid white;
+      }
+
+      .card-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        text-align: left;
+      }
+
+      .card-body span {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+
+        width: 50%;
+      }
+      .card-body span h3 {
+        text-align: center;
       }
 
 
@@ -106,46 +143,47 @@
 
     <main id="main-content">
 
-        <div>
+        <div id="tableOfContents">
           <h1>Service Categories</h1>
-          <div id="tableOfContents">
-            <a href="#packages">Service Packages</a>
-            <a href="#ceramic">Ceramic Coating</a>
-            <a href="#paint">Polish & Paint Correction</a>
-            <a href="#exterior">Exterior Detailing</a>
-            <a href="#interior">Interior Detailing</a>
+          <div id="categoryLinks">
+            <h2><a href="#packages">Service Packages</a></h2>
+            <h2><a href="#ceramic">Ceramic Coating</a></h2>
+            <h2><a href="#paint">Polish & Paint Correction</a></h2>
+            <h2><a href="#exterior">Exterior Detailing</a></h2>
+            <h2><a href="#interior">Interior Detailing</a></h2>
           </div>
-
         </div>
 
-        <div id="serviceListings">
-          <div class="card" >
-            <h2>hheadheadheadheadheadheadheadheadheadheadead</h2>
-            <p>bodyyy</p>
-          </div>
-          <div class="dropdown-body">
-            <span class="dropdown-body-half">
-              <h3>Interior</h3>
-              <ul>
-                <li>Vacuum & light carpet shampooing</li>
-                <li>Plastics, leather, and vinyls cleaning</li>
-                <li>Light seat shampooing</li>
-                <li>Interior & exterior window cleaning</li>
-                <li>Crack & crevice cleaning</li>
-              </ul>
-            </span>
+        <div id="servicesContainer">
 
-            <span class="dropdown-body-half">
-              <h3>Exterior</h3>
-              <ul>
-                <li>Hand wash & dry</li>
-                <li>Bug gut removal</li>
-                <li>Tire, wheel, and wheel well cleaning + tire shine</li>
-                <li>Window cleaning</li>
-                <li>Light door jam cleaning</li>
-              </ul>
-            </span>
+          <div class="card" >
+            <div class="card-head">
+              <h2>Service Package One</h2>
+            </div>
+            <div class="card-body">
+              <span>
+                <h3>Interior</h3>
+                <ul>
+                  <li>Vacuum & light carpet shampooing</li>
+                  <li>Plastics, leather, and vinyls cleaning</li>
+                  <li>Light seat shampooing</li>
+                  <li>Interior & exterior window cleaning</li>
+                  <li>Crack & crevice cleaning</li>
+                </ul>
+              </span>
+              <span>
+                <h3>Exterior</h3>
+                <ul>
+                  <li>Hand wash & dry</li>
+                  <li>Bug gut removal</li>
+                  <li>Tire, wheel, and wheel well cleaning + tire shine</li>
+                  <li>Window cleaning</li>
+                  <li>Light door jam cleaning</li>
+                </ul>
+              </span>
+            </div>
           </div>
+
         </div>
 
 
