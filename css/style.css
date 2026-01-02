@@ -8,9 +8,6 @@
   letter-spacing: 0.01rem;
 }
 
-.jx-handle, .jx-arrow {
-  background-color: rgba(0,0,0,0);
-}
 
 /** COLOR VARIABLES */
 :root {
@@ -26,13 +23,12 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
-  border-bottom: 1px solid var(--gold);
 }
 
 .banner {
   display: flex;
   justify-content: space-between;
-  max-width: 90%;
+  width: 90%;
   align-items: center;
 
   height: 4.5rem;
@@ -93,8 +89,6 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  padding: 1rem 1rem;
 }
 
 /** TEXT TYPES */
@@ -166,7 +160,11 @@ footer {
 
 /** DESKTOP RULES */
 @media screen and (min-width: 851px) {
-  /** header */
+
+  header {
+    border-bottom: 1px solid var(--gold);
+  }
+
   nav {
     display: flex;
     flex-direction: row;
@@ -185,31 +183,44 @@ footer {
 @media screen and (max-width: 850px) {
   /** header */
   header {
-    padding: 0 1rem;
+    padding: 0;
+    width: 100%;
+
+    border-bottom: none;
+    /* background-color: blue; */
+    background-size: cover;
+  }
+
+
+  .banner {
+    /* background-color: orange; */
+    border-bottom: none;
   }
 
   nav {
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     position: fixed;
     gap: 2rem;
 
-    padding: 2rem 0;
+    padding: 4.8rem 0 4rem 0;
 
-    top: -20rem;
+    transition: top 0.5s ease;
+    top: -23rem;
     left: 0;
     width: 100%;
 
     font-size: 2rem;
     text-align: center;
+    border-bottom: 1px solid var(--gold);
 
-    transition: top 0.5s ease;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     z-index: -1;
   }
 
   nav.active {
-    top: 1.5rem;
+    top: 2rem;
   }
 
   /** footer */

@@ -9,38 +9,51 @@
     <title>Luxury Detailing Maine</title>
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
-
-    <!-- IMAGE SLIDER CSS IMPORT -->
-    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+    <!-- juxtapose is the image slider / comparison tool-->
+    <link href="css/juxtapose.css" rel="stylesheet" />
 
     <style>
-      main {
-        margin-top: 5rem;
+      h1 {
+        margin-bottom: 5rem;
       }
-      
+
+      .jx-handle, .jx-arrow {
+        background-color: rgba(0,0,0,0);
+      }
+
       /** REVIEWS */
+      #reviews {
+        margin-top: 7vh;
+      }
+
       #reviewContainer {
         display: flex;
         flex-wrap: wrap;
-        gap: 3rem;
+        gap: 4rem;
+
+        width: 90%;
 
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
       }
 
         
       /** REVIEW CARD */
       .review-card {
-        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        padding: 3rem;
         border: 2px solid var(--gold);
         border-radius: 1rem;
 
-        transition: 0.5s ease;
+        transition: 0.3s ease;
         color: white;
       }
 
       .review-card:hover {
-        border: 2px solid white;
+        box-shadow: 0px 0px 10px 1px var(--gold);
       }
 
       .review-card-head {
@@ -52,31 +65,41 @@
         color: var(--gold);
       }
       .review-card-head a {
-        color: white;
+        color: var(--gold);
       }
       .review-card-head a:hover {
-        color: var(--gold);
+        color: white;
+      }
+
+      .review-card-head-left {
+        word-wrap: none;
+        text-align: left;
+      }
+      .review-card-head-right {
+        word-wrap: none;
+        text-align: right;
       }
 
       .review-card-body {
         max-height: 15rem;
-        overflow-y: auto;
+        overflow: hidden;
         text-align: left;
         color: white;
+        align-self: center;
       }
 
       /** GALLERY */
       #gallery {
         min-width: 100%;
       }
-      #galleryPhotos {
+      #imageContainer {
         display: flex;
-        min-width: 75%;
+        width: 90%;
         flex-direction: column;
         align-items: center;
       }
 
-      /** JUXTAPOSE STUFF **/
+      /** JUXTAPOSE ADJUSTMENTS **/
       a.jx-knightlab div.knightlab-logo {
         visibility: hidden !important;
         display: none !important;
@@ -99,60 +122,8 @@
       div.jx-arrow.jx-right {
         border-color: transparent transparent transparent var(--gold);
       }
-
-      /** BEFORE / AFTER IMAGES */
-      .before-after-pair {
-        position: relative;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        width: 75%;
-      }
-
-      .before-img-container {
-        max-height: 100%;
-      }
-
-      .after-img-container {
-        position: absolute;
-        top: 0;
-
-        max-height: 100%;
-
-        opacity: 0%;
-        transition: .5s;
-      }
-      .after-img-container:hover {
-        opacity: 100%;
-      }
-
-      .after-img {
-        height: 100%;
-        width: 100%;
-      }
-
-      .img-state-text {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        font-size: .8rem;
-
-        background-color: rgba(0, 0, 0, 0.8);
-
-        padding: .25rem 1rem;
-      }
-      .before-img-container .img-state-text {
-        color: white;
-      }
-      .after-img-container .img-state-text {
-        color: var(--gold);
-      }
-
-      /** 
+     
+      /************************************************
        * DESKTOP RULES 
        */
       @media screen and (min-width: 851px) {
@@ -161,23 +132,18 @@
         }
 
         .review-card {
-          min-width: 40%;
-          max-width: 45%;
-
-          overflow: hidden;
+          width: 25rem;
+          height: min-content;
         }
 
-        #galleryPhotos {
+        #imageContainer {
           flex-direction: row;
           flex-wrap: wrap;
           align-items: center;
-          justify-content: center;
+          justify-content: space-between;
           gap: 2rem;
         }
 
-        .before-after-pair, .before-img, .after-img-container {
-          width: 400px;
-        }
       }
 
       /* 
@@ -186,22 +152,18 @@
       @media screen and (max-width: 850px) {
         #reviewContainer {
           flex-direction: column;
-          width: 100%;
         }
 
 
-        #galleryPhotos {
+        #imageContainer {
           flex-direction: column;
           gap: 2rem;
         }
 
         .review-card {
-          width: 100%;
+          width: 90%;
         }
 
-        .before-after-pair, .before-img, .after-img-container {
-          width: 100%;
-        }
       }
     </style>
 
@@ -234,44 +196,25 @@
     </header>
 
     <main id="main-content">
-      <section>
-        <h1 style="margin-bottom: 2rem">Reviews</h1>
+      <section id="reviews">
+        <h1>Reviews</h1>
         <div id="reviewContainer"></div>
       </section>
 
      
       <section id="gallery">
-        <h1 style="margin-bottom: 2rem">Gallery</h1>
-        <div id="galleryPhotos">
+        <h1>Before & After Gallery</h1>
+        <div id="imageContainer">
 
-
-          <div class="juxtapose" style="width: 45%;">
+          <div class="juxtapose">
             <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
             <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
           </div>
 
-          <div class="juxtapose" style="width: 45%;">
+          <div class="juxtapose">
             <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
             <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
           </div>
-
-
-          <!-- KEPT AS REMINDER -->
-          <!-- 
-          <figure class="before-after-pair">
-            <span class="before-img-container">
-              <figcaption class="img-state-text">before</figcaption>
-              <img class="before-img" src="assets/img/before1.jpg" 
-                alt="An interior of a car trunk, the floor is covered in dirt and grass.">
-              </img>
-            </span>
-            <span class="after-img-container">
-              <figcaption class="img-state-text">after</figcaption>
-              <img class="after-img" src="assets/img/after1.jpg"
-                alt="The same trunk after it has been restored to like-new condition."></img>
-            </span>
-          </figure>
-          -->
 
         </div>
       </section>
@@ -294,33 +237,84 @@
       </div>
     </footer>
     <script src="js/hamburger.js"></script>
+    <script src="js/juxtapose.js"></script>
     <script>
+      /** script stuff just for this page */
+      
+      // on page init
+      window.onload = function () {
+        insertReviews(reviewData);
+        window.addEventListener("scroll", jiggleGallery);
+        window.addEventListener("resize", manageImageSize);
+        manageImageSize();
+      };
+
+      function manageImageSize() {
+        let isDesktop = window.innerWidth > 850;
+        let newWidth, newHeight;
+
+        if (isDesktop) {
+          newWidth  =  window.innerWidth   * 0.40;
+          newHeight =  newWidth * 1.2;
+        }
+        else {
+          newWidth  = window.innerWidth  * 0.80;
+          newHeight = newWidth * 1.2;
+        }
+
+        // resize iframes
+        let images = document.getElementsByClassName("juxtapose");
+        for (let i = 0; i < images.length; i++) {
+          images[i].style.width = newWidth + 'px';
+          images[i].style.height = newHeight + 'px';
+        }
+        
+        // resize images in iframe to match
+        images = document.getElementsByClassName("jx-image");
+        for (let i = 0; i < images.length; i++) {
+          images[i].style.width  = newWidth  + 'px';
+          images[i].style.height = newHeight + 'px';
+          images[i].children[0].style.width  = newWidth  + 'px';
+          images[i].children[0].style.height = newHeight + 'px';
+        }
+      }
+
+      /** review insertion **/
       let reviewData = [
         {
-          name: "Adrianna Weber",
-          text: "Incredible Transformation! ... Luxury Detailing exceeded expectations, revitalizing both of our vehicles and providing a truly impressive level of service. Highly recommended!",
-          url: "https://share.google/HA8xBsNKPDGCdqYSh",
+          name: "Sasha M.",
+          text: "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. I would happily recommend this service to anyone.",
+          url: "https://share.google/zUOkEQ8Yv6L2SkBsl",
         },
         {
-          name: "Tara Dossiema",
-          text: "Job well done, had the vehicle feeling like it just left the lot. You can tell Aden takes great pride and is meticulous in his work. Great communication and the attention to detail to all aspects, deserving of 5 stars+!",
+          name: "Tara D.",
+          text: "Job well done, had the vehicle feeling like it just left the lot. You can tell Aden takes great pride and is meticulous in his work.",
           url: "https://share.google/uMS4Ma8xT7ARAqf83",
         },
         {
-          name: "Sasha Mackey",
-          text: "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!",
-          url: "https://share.google/zUOkEQ8Yv6L2SkBsl",
+          name: "Adrianna W.",
+          text: "Luxury Detailing's Platinum package delivered incredible results, making my partner’s 15-year-old car look and feel brand new! ",
+          url: "https://maps.app.goo.gl/vS8JALPh7KNquRyu7",
         },
         {
-          name: "TEST",
-          text: "Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden!Easy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, AdenEasy 5 stars! Aden was super communicative, very friendly, and reasonably priced. He comes to you, which is super convenient! I got a car detailed as a birthday gift and it was so fun to present. No complaints! I would happily recommend this service to anyone. Thanks, Aden",
-          url: "https://share.google/zUOkEQ8Yv6L2SkBsl",
+          name: "Adam B.",
+          text: "Aden was easy to work with and did a fantastic job! I’m very happy with how the detailing came out! Great pricing for high quality service!",
+          url: "https://maps.app.goo.gl/Hp9Ez5hEF9iTrbn6A"
+        },
+        {
+          name: "Jacob S.",
+          text: "I could not be happier with the way my Cadillac turned out. The way the car came out is a night and day difference.",
+          url: "https://share.google/89ldWBKVGn25MnHPM"
+        },
+        {
+          name: "Sasha P.",
+          text: "I second all of the great reviews so far, Aden really is that great! My car really does look practically brand new.",
+          url: "https://share.google/ax2m0N4UOjvWIJpo0",
         },
       ];
 
       function insertReviews(reviews) {
         let target = document.getElementById("reviewContainer");
-        console.log(reviewData);
         for (let i = 0; i < reviews.length; i++) {
           let review = reviews[i];
           let linkedName = `<a href="${review.url}" class="reviewLink" target="_blank">${review.name}</a>`;
@@ -334,7 +328,7 @@
                 <span class="review-card-head-left">
                   ${review.url ? linkedName : review.name}
                 </span>
-                <span class="review-card-head-left">
+                <span class="review-card-head-right">
                   <span>★</span>
                   <span>★</span>
                   <span>★</span>
@@ -342,22 +336,42 @@
                   <span>★</span>
                 </span> 
               </div>
-              <div class="review-card-body">
-                <p>${review.text}</p>
-              </div>
+              <p class="review-card-body">
+                ${review.text}
+              </p>
             </div>
           `
           );
         }
       }
 
-      // upon page load
-      window.onload = function () {
-        insertReviews(reviewData);
-      };
+      /** gallery jiggling (indicate to user they can use slider) */
+      let jiggled = false;
+      async function jiggleGallery() {
+        if (window.scrollY < 850 || jiggled) return;
+        
+        // once user scrolls to gallery, change sliders on all images
+        let sliders = juxtapose.sliders;
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(65, true);
+        }
+        
+        // sleep, then slide again
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(35, true);
+        }
+
+        // sleep, then slide back to center
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(50, true);
+        }
+        jiggled = true;
+      }
     </script>
     
-    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+    <!-- <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script> -->
 
   </body>
 </html>

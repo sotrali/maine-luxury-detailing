@@ -13,10 +13,14 @@
     <link href="css/hamburger.css" rel="stylesheet" />
     
     <style>
+      html { scroll-behavior: smooth; }
 
       main {
         gap: 12rem;
       }
+
+      /** landings are used to jump slightly above categories */
+      .landing { top: -5rem; position: relative; }
 
       #categoryLinks {
         display: flex;
@@ -27,16 +31,26 @@
         margin-top: 2rem;
       }
 
-      #servicesContainer {
+      #categoryContainer {
         width: 90%;
         height: 100%;
       }
-      
-      #tableOfContents {
-        width: 90%;
-        margin-top: 5rem;
+
+      .serviceContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 3rem 0;
       }
 
+      #tableOfContents {
+        width: 90%;
+        margin-top: 35vh;
+        margin-bottom: 25vh;
+      }
+
+
+      /** Service Card */
       .card {
         padding: 3rem;
         border: 2px solid var(--gold);
@@ -44,7 +58,7 @@
 
         transition: 0.5s ease;
         color: white;
-        width: 25%;
+        width: 30%;
       }
       .card:hover {
         border: 2px solid white;
@@ -70,6 +84,8 @@
       }
 
 
+
+      /** Booking Button */
       .book-button {
         background-color: var(--black);
         color: var(--gold);
@@ -144,44 +160,41 @@
     <main id="main-content">
 
         <div id="tableOfContents">
-          <h1>Service Categories</h1>
+          <h1>Our Services</h1>
           <div id="categoryLinks">
-            <h2><a href="#packages">Service Packages</a></h2>
-            <h2><a href="#ceramic">Ceramic Coating</a></h2>
-            <h2><a href="#paint">Polish & Paint Correction</a></h2>
-            <h2><a href="#exterior">Exterior Detailing</a></h2>
-            <h2><a href="#interior">Interior Detailing</a></h2>
+            <h2><a href="#packagesJump">Service Packages</a></h2>
+            <h2><a href="#ceramicJump">Ceramic Coating</a></h2>
+            <h2><a href="#paintJump">Polish & Paint Correction</a></h2>
+            <h2><a href="#exteriorJump">Exterior Detailing</a></h2>
+            <h2><a href="#interiorJump">Interior Detailing</a></h2>
           </div>
         </div>
 
-        <div id="servicesContainer">
+        <div id="categoryContainer">
 
-          <div class="card" >
-            <div class="card-head">
-              <h2>Service Package One</h2>
-            </div>
-            <div class="card-body">
-              <span>
-                <h3>Interior</h3>
-                <ul>
-                  <li>Vacuum & light carpet shampooing</li>
-                  <li>Plastics, leather, and vinyls cleaning</li>
-                  <li>Light seat shampooing</li>
-                  <li>Interior & exterior window cleaning</li>
-                  <li>Crack & crevice cleaning</li>
-                </ul>
-              </span>
-              <span>
-                <h3>Exterior</h3>
-                <ul>
-                  <li>Hand wash & dry</li>
-                  <li>Bug gut removal</li>
-                  <li>Tire, wheel, and wheel well cleaning + tire shine</li>
-                  <li>Window cleaning</li>
-                  <li>Light door jam cleaning</li>
-                </ul>
-              </span>
-            </div>
+          <span id="packagesJump" class="landing"></span>
+          <h1>Service Packages</h1>
+          <div id="packages" class="serviceContainer">
+          </div>
+
+          <span id="ceramicJump" class="landing"></span>
+          <h1>Ceramic Coating</h1>
+          <div id="ceramic" class="serviceContainer">
+          </div>
+
+          <span id="paintJump" class="landing"></span>
+          <h1>Paint & Polish Correction</h1>
+          <div id="paint" class="serviceContainer">
+          </div>
+          
+          <span id="exteriorJump" class="landing"></span>
+          <h1>Exterior Detailing</h1>
+          <div id="exterior" class="serviceContainer">
+          </div>
+
+          <span id="interiorJump" class="landing"></span>
+          <h1>Interior Detailing</h1>
+          <div id="interior" class="serviceContainer">
           </div>
 
         </div>
@@ -207,31 +220,54 @@
     </footer>
     <script src="js/hamburger.js"></script>
     <script>
-      function toggleDropdown(headerClicked) {
-        let dropdown = headerClicked.parentElement;
-        let body = headerClicked.nextElementSibling;
-        let arrow = headerClicked.children[0];
 
-        if (dropdown.classList.contains("longest")) {
-          dropdown.classList.toggle("open-longest");
-          body.classList.toggle("open-longest");
-          arrow.classList.toggle("open");
-        }
-        else if (dropdown.classList.contains("long")) {
-          dropdown.classList.toggle("open-long");
-          body.classList.toggle("open-long");
-          arrow.classList.toggle("open");
-        }
-        else {
-          dropdown.classList.toggle("open");
-          body.classList.toggle("open");
-          arrow.classList.toggle("open");
-        }
+      // these categories must match the IDs of the serviceContainer <div>s above
+      const categories = ["packages", "ceramic", "paint", "exterior", "interior"];
+      const serviceData = {};
 
-        let isOpen = dropdown.className.includes("open");
-        dropdown.setAttribute('aria-expanded', isOpen);
-
+      function insertServices(serviceData) {
+        for (const category of categories) {
+          console.log(category);
+          let target = document.getElementById(category);
+          target.insertAdjacentHTML(
+            "beforeend",
+            `
+            <div class="card" >
+              <div class="card-head">
+                <h2>Service Package One</h2>
+              </div>
+              <div class="card-body">
+                <span>
+                  <h3>Interior</h3>
+                  <ul>
+                    <li>Vacuum & light carpet shampooing</li>
+                    <li>Plastics, leather, and vinyls cleaning</li>
+                    <li>Light seat shampooing</li>
+                    <li>Interior & exterior window cleaning</li>
+                    <li>Crack & crevice cleaning</li>
+                  </ul>
+                </span>
+                <span>
+                  <h3>Exterior</h3>
+                  <ul>
+                    <li>Hand wash & dry</li>
+                    <li>Bug gut removal</li>
+                    <li>Tire, wheel, and wheel well cleaning + tire shine</li>
+                    <li>Window cleaning</li>
+                    <li>Light door jam cleaning</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          `);
+        }
       }
+     
+      // insert services upon page load
+      window.onload = (event) => {
+        insertServices(serviceData);
+      }
+
     </script>
   </body>
 </html>
