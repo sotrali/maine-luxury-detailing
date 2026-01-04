@@ -31,6 +31,18 @@
         margin-top: 2rem;
       }
 
+      .jumpLink {
+        border: 1px solid var(--gold);
+        padding: 1rem;
+        border-radius: 1rem;
+        text-decoration: none;
+        color: var(--gold);
+        transition: 0.3s ease;
+      }
+      .jumpLink:hover {
+        color: white;  
+      }
+
       #categoryContainer {
         width: 90%;
         height: 100%;
@@ -162,11 +174,11 @@
         <div id="tableOfContents">
           <h1>Our Services</h1>
           <div id="categoryLinks">
-            <h2><a href="#packagesJump">Service Packages</a></h2>
-            <h2><a href="#ceramicJump">Ceramic Coating</a></h2>
-            <h2><a href="#paintJump">Polish & Paint Correction</a></h2>
-            <h2><a href="#exteriorJump">Exterior Detailing</a></h2>
-            <h2><a href="#interiorJump">Interior Detailing</a></h2>
+            <a href="#packagesJump" class="jumpLink"><h2>Service<br/>Packages</h2></a>
+            <a href="#ceramicJump" class="jumpLink"><h2>Ceramic<br/>Coating</h2></a>
+            <a href="#paintJump"><h2>Polish &<br/>Paint Correction</h2></a>
+            <a href="#exteriorJump"><h2>Exterior<br/>Detailing</h2></a>
+            <a href="#interiorJump"><h2>Interior<br/>Detailing</h2></a>
           </div>
         </div>
 
