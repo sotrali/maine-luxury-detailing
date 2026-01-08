@@ -294,7 +294,6 @@
         for (let i = 0; i < reviews.length; i++) {
           let review = reviews[i];
           let linkedName = `<a href="${review.url}" class="reviewLink" target="_blank">${review.name}</a>`;
-
           // load reviews
           target.insertAdjacentHTML(
             "beforeend",
@@ -323,21 +322,19 @@
 
       /** gallery jiggling (indicate to user they can slide images for comparison) */
       let jiggled = false;
+      let jiggleThreshold = document.getElementById("reviews").offsetHeight + 25;
       async function jiggleGallerySliders() {
-        let jiggleThreshold = document.getElementById("reviews").offsetHeight + 25;
-        console.log('jiggle trheshold: ' + jiggleThreshold);
-        console.log('current pos: ' + window.scrollY);
-
         // ensure jiggle only triggers once, upon gallery scrolling into view
         if (window.scrollY < jiggleThreshold || jiggled) return;
-        
-        // once user scrolls to gallery, move sliders on all images up a bit
+        jiggled = true;
+
+        // once user scrolls to gallery, move sliders on all images right a bit
         let sliders = juxtapose.sliders;
         for (let i = 0; i < sliders.length; i++) {
           sliders[i].updateSlider(60, true);
         }
         
-        // sleep, then slide them all down,
+        // sleep, then slide them all left,
         await new Promise(resolve => setTimeout(resolve, 1000));
         for (let i = 0; i < sliders.length; i++) {
           sliders[i].updateSlider(40, true);
@@ -348,7 +345,6 @@
         for (let i = 0; i < sliders.length; i++) {
           sliders[i].updateSlider(50, true);
         }
-        jiggled = true;
       }
 
 
@@ -374,7 +370,7 @@
           images[i].style.height = newHeight + 'px';
         }
         
-        // resize images in iframe to match
+        // resize images in each iframe to match new dimensions
         images = document.getElementsByClassName("jx-image");
         for (let i = 0; i < images.length; i++) {
           images[i].style.width  = newWidth  + 'px';
@@ -383,6 +379,7 @@
           images[i].children[0].style.height = newHeight + 'px';
         }
 
+        // quickly touch every iframe/slider (otherwise the images glitch out until user interacts with slider again)
         let sliders = juxtapose.sliders;
         for (let i = 0; i < sliders.length; i++) {
           sliders[i].updateSlider(sliders[i].sliderPosition.replace("%", ""), true);
