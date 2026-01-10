@@ -23,7 +23,7 @@
 
       /** REVIEWS */
       #reviews {
-        margin-top: 7vh;
+        margin-top: 7rem;
       }
 
       #reviewContainer {
@@ -47,13 +47,9 @@
         padding: 3rem;
         border: 2px solid var(--gold);
         border-radius: 1rem;
+        box-shadow: 3px 3px 0px var(--gold);
 
-        transition: 0.3s ease;
         color: white;
-      }
-
-      .review-card:hover {
-        box-shadow: 0px 0px 10px 1px var(--gold);
       }
 
       .review-card-head {
@@ -66,6 +62,7 @@
       }
       .review-card-head a {
         color: var(--gold);
+        transition: 0.2s ease;
       }
       .review-card-head a:hover {
         color: white;
@@ -189,7 +186,7 @@
         <nav>
           <a class="navLink" role="navigation" href="ceramic-coating.html">Ceramic Coating</a>
           <a class="navLink" role="navigation" href="services.html">Services</a>
-          <a class="navLink" role="navigation" href="reviews.html">Reviews</a>
+          <a class="navLink" role="navigation" href="reviews.html"style="color: white" >Reviews</a>
           <a class="navLink" role="navigation" href="contact.html">About</a>
         </nav>
       </div>
@@ -197,7 +194,6 @@
 
     <main id="main-content">
       <section id="reviews">
-        <h1>Reviews</h1>
         <div id="reviewContainer"></div>
       </section>
 
