@@ -80,6 +80,7 @@
 
 
       /** Services */
+      a.service { text-decoration: none;}
       .service {
         display: flex;
         flex-direction: column;
@@ -481,13 +482,8 @@
           /** LEVEL ONE INTERIOR */
           {
               "title" : "Level One Interior",
-              "subtitle" : "Clean as a whistle!",
+              "subtitle" : "A deep clean of your car's interior.",
               "left" : {
-                "header" : "Description",
-                "paragraph" : "A deep clean of your car's interior.",
-                "bullets" :  []
-              },
-              "right" : {
                 "header" : "Includes",
                 "paragraph" : "",
                 "bullets" :  [
@@ -497,6 +493,11 @@
                   "Interior & exterior window cleaning",
                   "Crack & crevice cleaning"
                 ]
+              },
+              "right" : {
+                "header" : "",
+                "paragraph" : "",
+                "bullets" :  []
               },
               "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/iy5yKtAhm0O0w0P05acA?productServiceId=3LCNMgeB58hjFwhg58BU&sku=MuCpgSMV0hU4sUdjAPBi"
             },
@@ -510,18 +511,16 @@
                 "bullets" :  [
                   "Upholstery shampooing",
                   "Crack & crevice cleaning",
-                  "6 month interior protection (Spills, UV, less dust, less cleaning, and plastic rejuvenation)"
+                  "6 month interior protection (Spills, UV, less dust, less cleaning, and plastic rejuvenation)",
+                  "Vacuum & carpet shampooing",
+                  "Plastics, leather, and vinyls scrubbed",
+                  "Leather conditioning for protection and suppleness"
                   ]
               },
               "right" : {
-                "header" : "and",
+                "header" : "",
                 "paragraph" : "",
-                "bullets" :  [
-                  "Vacuum & carpet shampooing",
-                  "Plastics, leather, and vinyls scrubbed",
-                  "Leather conditioning for protection and suppleness",
-                  
-                ]
+                "bullets" :  []
               },
               "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI"
             }
@@ -542,7 +541,7 @@
             target.insertAdjacentHTML(
             "beforeend",
             `
-            <div class="service">
+            <a class="service" href=${service.url} target="_blank">
               <div class="card">
                 <div class="card-head">
                   <h2>${service.title}</h2>
@@ -553,9 +552,7 @@
                   ${rightSide ? rightSide : ""}
                 </div>
               </div>
-
-              <button>book</button>
-            </div>
+            </a>
           `);
           }
         }
