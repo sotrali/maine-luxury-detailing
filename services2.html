@@ -70,7 +70,7 @@
 
       #tableOfContents {
         width: 90%;
-        margin-top: 35vh;
+        margin-top: 8rem;
         margin-bottom: 25vh;
       }
 
@@ -189,7 +189,7 @@
           <div id="categoryLinks">
             <a href="#packagesJump" class="jumpLink"><h2>Service Packages</h2></a>
             <a href="#ceramicJump"  class="jumpLink"><h2>Ceramic Coating</h2></a>
-            <a href="#paintJump"    class="jumpLink"><h2>Polish &<br/>Paint Correction</h2></a>
+            <a href="paintJump"    class="jumpLink"><h2>Polish &<br/>Paint Correction</h2></a>
             <a href="#exteriorJump" class="jumpLink"><h2>Exterior Detailing</h2></a>
             <a href="#interiorJump" class="jumpLink"><h2>Interior Detailing</h2></a>
           </div>
@@ -248,43 +248,304 @@
 
       // these categories must match the IDs of the serviceContainer <div>s above
       const categories = ["packages", "ceramic", "paint", "exterior", "interior"];
-      const serviceData = {};
+      const serviceData = {
+        "packages" : [
+          /** SERVICE PACKAGE ONE */
+          {
+            "title" : "Service Package One",
+            "subtitle" : "Give your car the time, love, and care it deserves.",
+            "left" : {
+              "header" : "Interior",
+              "paragraph" : "",
+              "bullets" :  [
+                "Vacuum & light carpet shampooing",
+                "Plastics, leather, and vinyls cleaning",
+                "Light seat shampooing",
+                "Interior & exterior window cleaning",
+                "Crack & crevice cleaning"
+              ]
+            },
+            "right" : {
+              "header" : "Exterior",
+              "paragraph" : "",
+              "bullets" :  [
+                "Hand wash & dry",
+                "Bug gut removal",
+                "Tire, wheel, and wheel well cleaning + tire shine",
+                "Window cleaning",
+                "Light door jam cleaning"
+              ]
+            },
+            "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=sIUtLBqGS4mjAQNwHtI4&sku=rH37oV6muKqDXStXhH3k"
+          },
+          /** SERVICE PACKAGE TWO */
+          {
+            "title" : "Service Package Two",
+            "subtitle" : "Tell the world you're proud of your car.",
+            "left" : {
+              "header" : "Interior",
+              "paragraph" : "",
+              "bullets" :  [
+                "Vacuum & light carpet shampooing",
+                "Plastics, leather, and vinyls cleaning",
+                "Light seat shampooing",
+                "Interior & exterior window cleaning",
+                "Crack & crevice cleaning"
+              ]
+            },
+            "right" : {
+              "header" : "Exterior",
+              "paragraph" : "",
+              "bullets" :  [
+                "Hand wash & dry",
+                "Bug gut removal",
+                "Tire, wheel, and wheel well cleaning + tire shine",
+                "Clay service to remove embedded contamination",
+                "3 to 6 month ceramic paint sealant: gloss, protection, hydrophobic & self-cleaning properties"
+              ]
+            },
+            "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr?productServiceId=ZUyqKhnZtS3uAT9Auo2I&sku=EsEnqIEVcVedKRDITk7e"
+          }
+        ],
+        "ceramic" : [
+          /** ELITE COATING */
+          {
+              "title" : "Elite Ceramic Coating",
+              "subtitle" : "Bring out and protect your car's shine for years to come.",
+              "left" : {
+                "header" : "Description",
+                "paragraph" : "A protective layer on your vehicle's surface that repels water, dirt, and contaminants, making cleaning easier and enhancing the paint's durability and shine for 3-5 years.",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "Includes",
+                "paragraph" : "",
+                "bullets" :  [
+                  "Hand wash",
+                  "Decontamination of paint & glass",
+                  "1 Step polish to remove light swirls and enhance gloss"
+                ]
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596"
+            },
+            /** COMPLETE COATING */
+            {
+              "title" : "Complete Ceramic Coating",
+              "subtitle" : "Like a factory reset on your cars exterior, but 10x better.",
+              "left" : {
+                "header" : "Description",
+                "paragraph" : "A protective layer on your vehicle's surface that repels water, dirt, and contaminants, and UV rays, with insane gloss and shine for 3-5 years. (Paint + Glass)",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "Includes",
+                "paragraph" : "",
+                "bullets" :  [
+                  "Hand wash & dry",
+                  "Wheel cleaning",
+                  "1 stage paint correction on all paint & glas",
+                  "Free quarterly washes",
+                  "Free annual decontamination and topper"
+                ]
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=EpBxqPABGIwdF1f3ujqS&sku=Et0iAwD3vqAQYtcNo596"
+            },
+            /** WHEEL WASH */
+            {
+              "title" : "Wheel Wash",
+              "subtitle" : "Make your wheels glow and shine.",
+              "left" : {
+                "header" : "Disclaimer",
+                "paragraph" : "Only available if the entire car receives a ceramic coating.",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "",
+                "paragraph" : "",
+                "bullets" :  []
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/Z2TzVLNpkirBka11huXA?productServiceId=jFgdX1fB0AoMVmIhSSmP&sku=lCUwUjNUHf4NYqqKYRNS"
+            }
+        ],
+        "paint" : [
+          /** PAINT ENHANCEMENT */
+          {
+            "title" : "Paint Enhancement",
+            "subtitle" : "Bring back that gloss you know and love.",
+            "left" : {
+              "header" : "Disclaimer",
+              "paragraph" : "Must include an exterior wash & decontamination (price included).",
+              "bullets" :  []
+            },
+            "right" : {
+              "header" : "Includes",
+              "paragraph" : "",
+              "bullets" :  [
+                "1-step polish to enhance gloss & reduce minor defects",
+                "Ceramic coating, sealant, or wax required after"
+              ]
+            },
+            "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=CvJ0v88LfLS9De7I04qu&sku=EyZfDYm9fPEgr3FRl24h"
+          },
+          /** PAINT CORRECTION */
+          {
+            "title" : "Paint Correction",
+            "subtitle" : "Give your paint a breath of fresh air.",
+            "left" : {
+              "header" : "Disclaimer",
+              "paragraph" : "Ceramic coating, sealant, or wax required after",
+              "bullets" :  []
+            },
+            "right" : {
+              "header" : "Includes",
+              "paragraph" : "Restore shine and gloss.",
+              "bullets" :  [
+                "Exterior wash and decontaminaion",
+                "2-step polish to eliminate 80-85% of defects",
+              ]
+            },
+            "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/W7MYzeflJr6yEAlpgreQ?productServiceId=EDLsm6ynRPi4sKV0ajh1&sku=s1VcPPUMz3Y5n9B99e2F"
+          }
+        ],
+        "exterior" : [
+          /** LEVEL ONE EXTERIOR */
+          {
+              "title" : "Level One Exterior",
+              "subtitle" : "Refresh your shine!",
+              "left" : {
+                "header" : "Description",
+                "paragraph" : "A safe and meticulous hand wash to reveal the true shine of your car.",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "Includes",
+                "paragraph" : "",
+                "bullets" :  [
+                  "Hand wash & dry",
+                  "Bug gut removal",
+                  "Tire, wheel, wheel well cleaning, and tire shine",
+                  "Window cleaning",
+                  "Light door jam cleaning"
+                ]
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=TFqzf6t8BKh7vTGxfNBy&sku=Czg1xQxpwwf5ninBF6xq"
+            },
+            /** LEVEL TWO INTERIOR */
+            {
+              "title" : "Level Two Exterior",
+              "subtitle" : "Most Popular.",
+              "left" : {
+                "header" : "Description",
+                "paragraph" : "For those who want their car to shine, be safe and protected from harsh elements, self clean, and be a breeze to wash. (Previously 'Wash, Clay, Seal')",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "Includes",
+                "paragraph" : "",
+                "bullets" :  [
+                  "Hand wash & dry",
+                  "Bug gut removal",
+                  "Tire, wheel, wheel well cleaning, and tire shine",
+                  "Clay mitt to remove embedded contamination",
+                  "3 to 6 month ceramic paint sealant: gloss, protection, hydrophobic & self-cleaning properties"
+                ]
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI"
+            }
+        ],
+        "interior" : [
+          /** LEVEL ONE INTERIOR */
+          {
+              "title" : "Level One Interior",
+              "subtitle" : "Clean as a whistle!",
+              "left" : {
+                "header" : "Description",
+                "paragraph" : "A deep clean of your car's interior.",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "Includes",
+                "paragraph" : "",
+                "bullets" :  [
+                  "Vacuum & light carpet shampooing<",
+                  "Plastics, leather, and vinyls cleaning",
+                  "Light seat shampooing",
+                  "Interior & exterior window cleaning",
+                  "Crack & crevice cleaning"
+                ]
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/iy5yKtAhm0O0w0P05acA?productServiceId=3LCNMgeB58hjFwhg58BU&sku=MuCpgSMV0hU4sUdjAPBi"
+            },
+            /** LEVEL TWO INTERIOR */
+            {
+              "title" : "Level Two Interior",
+              "subtitle" : "Bring back the interior you love & protect it for months.",
+              "left" : {
+                "header" : "Description",
+                "paragraph" : "A thorough restoration of your car's interior.",
+                "bullets" :  []
+              },
+              "right" : {
+                "header" : "Includes",
+                "paragraph" : "",
+                "bullets" :  [
+                  "Vacuum & carpet shampooing<",
+                  "Plastics, leather, and vinyls scrubbed",
+                  "Leather conditioning for protection and suppleness",
+                  "Upholstery shampooing",
+                  "Crack & crevice cleaning",
+                  "6 month interior protection (Spills, UV, less dust, less cleaning, and plastic rejuvenation)"
+                ]
+              },
+              "url" : "https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/yT4vtoWKB5qGaQMaxOdd?productServiceId=bc8YSJd6fl0CprnAY43r&sku=iUA7y7dwM4Kz51pBpQNI"
+            }
+        ]
+      };
 
       function insertServices(serviceData) {
         for (const category of categories) {
+          let categoryData = serviceData[category];
           console.log(category);
+          console.log(categoryData);
+
           let target = document.getElementById(category);
-          target.insertAdjacentHTML(
+
+          for (const service of categoryData) {
+            target.insertAdjacentHTML(
             "beforeend",
             `
             <div class="card" >
               <div class="card-head">
-                <h2>Service Package One</h2>
+                <h2>${service.title}</h2>
+                <p>${service.subtitle}</p>
               </div>
               <div class="card-body">
                 <span>
                   <h3>Interior</h3>
                   <ul>
-                    <li>Vacuum & light carpet shampooing</li>
-                    <li>Plastics, leather, and vinyls cleaning</li>
-                    <li>Light seat shampooing</li>
-                    <li>Interior & exterior window cleaning</li>
-                    <li>Crack & crevice cleaning</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                   </ul>
                 </span>
                 <span>
                   <h3>Exterior</h3>
                   <ul>
-                    <li>Hand wash & dry</li>
-                    <li>Bug gut removal</li>
-                    <li>Tire, wheel, and wheel well cleaning + tire shine</li>
-                    <li>Window cleaning</li>
-                    <li>Light door jam cleaning</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                   </ul>
                 </span>
               </div>
             </div>
           `);
+          }
+          // for each side, only rdner header, paragraph, bullets, if they exist (and in that order)
+
         }
       }
      

@@ -14,7 +14,7 @@
 
     <style>
       h1 {
-        margin-bottom: 5rem;
+        margin-bottom: 6rem;
       }
 
       .jx-handle, .jx-arrow {
@@ -243,6 +243,7 @@
       window.onload = function () {
         // first, insert all reviews into the page
         insertReviews(reviewData);
+        jiggleThreshold = document.getElementById("reviews").offsetHeight + 50;
         // set listener to jiggle gallery sliders
         window.addEventListener("scroll", jiggleGallerySliders);
         // set listener for overriding gallery resize logic
@@ -318,10 +319,13 @@
 
       /** gallery jiggling (indicate to user they can slide images for comparison) */
       let jiggled = false;
-      let jiggleThreshold = document.getElementById("reviews").offsetHeight + 25;
+      let jiggleThreshold;
       async function jiggleGallerySliders() {
-        // ensure jiggle only triggers once, upon gallery scrolling into view
-        if (window.scrollY < jiggleThreshold || jiggled) return;
+        // ensure threshold was initialized + jiggle only once per page load 
+        if (!jiggleThreshold || jiggled) return;
+
+        // ensure jiggle only triggers upon gallery scrolling into view
+        if (window.scrollY < jiggleThreshold) return;
         jiggled = true;
 
         // once user scrolls to gallery, move sliders on all images right a bit
