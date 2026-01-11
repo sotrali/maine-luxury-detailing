@@ -502,6 +502,8 @@
         ]
       };
 
+
+
       function insertServices(serviceData) {
         for (const category of categories) {
           let categoryData = serviceData[category];
@@ -511,6 +513,8 @@
           let target = document.getElementById(category);
 
           for (const service of categoryData) {
+            let leftSide  = buildCardColumn(service.left);
+            let rightSide = buildCardColumn(service.right);
             target.insertAdjacentHTML(
             "beforeend",
             `
@@ -520,35 +524,35 @@
                 <p>${service.subtitle}</p>
               </div>
               <div class="card-body">
-                <span>
-                  <h3>Interior</h3>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </span>
-                <span>
-                  <h3>Exterior</h3>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </span>
+                ${leftSide  ? leftSide : ""}
+                ${rightSide ? rightSide : ""}
               </div>
             </div>
           `);
           }
-          // for each side, only rdner header, paragraph, bullets, if they exist (and in that order)
-
         }
       }
-     
+
+      function buildCardColumn(data) {
+        let html = "<span>";
+        if (data.header) {
+          html += "<h3>" + data.header + "</h3>";
+        }
+        if (data.paragraph) {
+          html += "<p>" + data.paragraph + "</p>";
+        }
+        if (data.bullets) {
+          html += "<ul>";
+          for (point of data.bullets) {
+            html += "<li>" + point + "</li>";
+          }
+          html += "</ul>";
+        }
+        html += "</span>";
+        if (html == "<span></span>") return null;
+        return html;
+      }
+
       // insert services upon page load
       window.onload = (event) => {
         insertServices(serviceData);
