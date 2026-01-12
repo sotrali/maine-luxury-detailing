@@ -11,8 +11,13 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/dropdown.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
+    <!-- juxtapose is the image slider / comparison tool-->
+    <link href="css/juxtapose.css" rel="stylesheet" />
+
     <style>
-      /** PAGE SPECIFIC STYLING */
+      .jx-handle, .jx-arrow {
+        background-color: rgba(0,0,0,0);
+      }
 
       main {
         min-height: 530px; /** to make sure footer doesn't overlap hero */
@@ -36,6 +41,55 @@
         /** padding: 3rem 4rem 4rem 4rem; */
 
         padding-bottom: 2rem;
+      }
+
+      .jumpLink h2 { transition: ease 0.2s; }
+      .jumpLink h2:hover { color: var(--gold); }
+
+      h2 {
+        color: white;
+      }
+       
+      /** GALLERY */
+      #gallery {
+        min-width: 100%;
+      }
+      #imageContainer {
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+      }
+      #imageContainer {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+      }
+
+      /** JUXTAPOSE ADJUSTMENTS **/
+      a.jx-knightlab div.knightlab-logo {
+        visibility: hidden !important;
+        display: none !important;
+      }
+
+      a.jx-knightlab span.juxtapose-name {
+        visibility: hidden !important;
+        display: none !important;
+      }
+      .juxtapose img {
+        border-radius: 2rem;
+      }
+      div.jx-slider {
+        color: var(--gold) !important;
+      }
+
+      div.jx-arrow.jx-left {
+        border-color: transparent var(--gold) transparent transparent;
+      }
+      div.jx-arrow.jx-right {
+        border-color: transparent transparent transparent var(--gold);
       }
 
       /** BOOK NOW big button */
@@ -76,20 +130,15 @@
         text-decoration: none;
       }
 
-      h2 {
-        color: white;
-      }
-
       /** MOBILE */
       @media screen and (max-width: 850px) {
         #hero-image {
           background: url("assets/img/aden-mobile.jpg") center 10% / 100%
             no-repeat;
-          height: 300px;
+          height: 275px;
         }
 
         main {
-          gap: 2rem;
         }
 
         #intro {
@@ -102,6 +151,11 @@
           width: 85%;
         }
         #book-link {
+        }
+
+        #imageContainer {
+          flex-direction: column;
+          gap: 2rem;
         }
       }
     </style>
@@ -141,16 +195,35 @@
         <p>with the best mobile car detailing service in the Portland area</p>
       </section>
 
-      <a
-        href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5"
-        target="_blank"
-        id="book-link"
-      >
-        <button id="book-button">BOOK NOW</button>
-      </a> 
+      <div id="tableOfContents">
+        <h1>Our Services</h1>
+        <div id="categoryLinks">
+          <a href="./services.html?jumpTarget=ceramic"  class="jumpLink"><h2>Ceramic Coating</h2></a>
+          <a href="./services.html?jumpTarget=paint"    class="jumpLink"><h2>Polish & Paint Correction</h2></a>
+          <a href="./services.html?jumpTarget=exterior" class="jumpLink"><h2>Exterior Detailing</h2></a>
+          <a href="./services.html?jumpTarget=interior" class="jumpLink"><h2>Interior Detailing</h2></a>
+        </div>
+      </div>
+
+      <section id="gallery">
+        <h1 style="margin-bottom: 2rem">Before & After Gallery</h1>
+        <div id="imageContainer">
+
+          <div class="juxtapose">
+            <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
+            <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
+          </div>
+
+          <div class="juxtapose">
+            <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
+            <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
+          </div>
+
+        </div>
+      </section> 
 
       <section id="FAQ">
-        <h1 style="margin-bottom: 2rem">FAQ</h1>
+        <h1 style="">FAQ</h1>
 
         <div class="faq-item">
           <div class="faq-question">
@@ -160,8 +233,15 @@
             this is where we answer the question in the header
           </div>
         </div>
+      </section>
 
-       </section>
+      <a
+        href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5"
+        target="_blank"
+        id="book-link"
+      >
+        <button id="book-button">BOOK NOW</button>
+      </a>
     </main>
 
     <footer>
@@ -182,5 +262,89 @@
     </footer>
     <script src="js/hamburger.js"></script>
     <script src="js/dropdown.js"></script>
+    <script src="js/juxtapose.js"></script>
+    <script>
+      /** page init */
+      window.onload = function () {
+        // set listener to jiggle gallery sliders
+        window.addEventListener("scroll", jiggleGallerySliders);
+        // set listener for overriding gallery resize logic
+        window.addEventListener("resize", setImageSizes);
+        // initialize gallery image sizes by feigning resize upon init
+        setImageSizes();
+      };
+
+      /** gallery jiggling (indicate to user they can slide images for comparison) */
+      let jiggled = false;
+      let jiggleThreshold = document.getElementById("hero-image").offsetHeight +
+        document.getElementById("intro").offsetHeight + 
+        document.getElementById("FAQ").offsetHeight + 50;
+      async function jiggleGallerySliders() {
+        // ensure threshold was initialized + jiggle only once per page load 
+        if (!jiggleThreshold || jiggled) return;
+
+        // ensure jiggle only triggers upon gallery scrolling into view
+        if (window.scrollY < jiggleThreshold) return;
+        jiggled = true;
+
+        // once user scrolls to gallery, move sliders on all images right a bit
+        let sliders = juxtapose.sliders;
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(60, true);
+        }
+        
+        // sleep, then slide them all left,
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(40, true);
+        }
+
+        // sleep, then reset sliders back to center
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(50, true);
+        }
+      }
+
+
+      /** override logic for 'juxtapose' image scaling based on window size changes */
+      function setImageSizes() {
+        let isDesktop = window.innerWidth > 850;
+        let newWidth, newHeight;
+
+        if (isDesktop) {
+          newWidth  =  window.innerWidth   * 0.40;
+        }
+        else {
+          newWidth  = window.innerWidth  * 0.80;
+        }
+
+        // keep all images at 1:1.2 ratio
+        newHeight = newWidth * 1.2;
+
+        // resize iframes
+        let images = document.getElementsByClassName("juxtapose");
+        for (let i = 0; i < images.length; i++) {
+          images[i].style.width = newWidth + 'px';
+          images[i].style.height = newHeight + 'px';
+        }
+        
+        // resize images in each iframe to match new dimensions
+        images = document.getElementsByClassName("jx-image");
+        for (let i = 0; i < images.length; i++) {
+          images[i].style.width  = newWidth  + 'px';
+          images[i].style.height = newHeight + 'px';
+          images[i].children[0].style.width  = newWidth  + 'px';
+          images[i].children[0].style.height = newHeight + 'px';
+        }
+
+        // quickly touch every iframe/slider (otherwise the images glitch out until user interacts with slider again)
+        let sliders = juxtapose.sliders;
+        for (let i = 0; i < sliders.length; i++) {
+          sliders[i].updateSlider(sliders[i].sliderPosition.replace("%", ""), true);
+        }
+
+      }
+    </script>
   </body>
 </html>

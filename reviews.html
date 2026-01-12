@@ -9,16 +9,10 @@
     <title>Luxury Detailing Maine</title>
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/hamburger.css" rel="stylesheet" />
-    <!-- juxtapose is the image slider / comparison tool-->
-    <link href="css/juxtapose.css" rel="stylesheet" />
 
     <style>
       h1 {
         margin-bottom: 6rem;
-      }
-
-      .jx-handle, .jx-arrow {
-        background-color: rgba(0,0,0,0);
       }
 
       /** REVIEWS */
@@ -84,41 +78,6 @@
         color: white;
         align-self: center;
       }
-
-      /** GALLERY */
-      #gallery {
-        min-width: 100%;
-      }
-      #imageContainer {
-        display: flex;
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      /** JUXTAPOSE ADJUSTMENTS **/
-      a.jx-knightlab div.knightlab-logo {
-        visibility: hidden !important;
-        display: none !important;
-      }
-
-      a.jx-knightlab span.juxtapose-name {
-        visibility: hidden !important;
-        display: none !important;
-      }
-      .juxtapose img {
-        border-radius: 2rem;
-      }
-      div.jx-slider {
-        color: var(--gold) !important;
-      }
-
-      div.jx-arrow.jx-left {
-        border-color: transparent var(--gold) transparent transparent;
-      }
-      div.jx-arrow.jx-right {
-        border-color: transparent transparent transparent var(--gold);
-      }
      
       /************************************************
        * DESKTOP RULES 
@@ -132,15 +91,6 @@
           width: 25rem;
           height: min-content;
         }
-
-        #imageContainer {
-          flex-direction: row;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-          gap: 2rem;
-        }
-
       }
 
       /* 
@@ -149,12 +99,6 @@
       @media screen and (max-width: 850px) {
         #reviewContainer {
           flex-direction: column;
-        }
-
-
-        #imageContainer {
-          flex-direction: column;
-          gap: 2rem;
         }
 
         .review-card {
@@ -196,24 +140,6 @@
       <section id="reviews">
         <div id="reviewContainer"></div>
       </section>
-
-     
-      <section id="gallery">
-        <h1>Before & After Gallery</h1>
-        <div id="imageContainer">
-
-          <div class="juxtapose">
-            <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
-            <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
-          </div>
-
-          <div class="juxtapose">
-            <img src="assets/img/before1.jpg" alt="An interior of a car trunk, the floor is covered in dirt and grass." />
-            <img src="assets/img/after1.jpg" alt="The same trunk after it has been restored to like-new condition." />
-          </div>
-
-        </div>
-      </section>
     </main>
 
     <footer>
@@ -233,7 +159,6 @@
       </div>
     </footer>
     <script src="js/hamburger.js"></script>
-    <script src="js/juxtapose.js"></script>
     <script>
       /** script stuff just for this page */
       
@@ -243,7 +168,6 @@
       window.onload = function () {
         // first, insert all reviews into the page
         insertReviews(reviewData);
-        jiggleThreshold = document.getElementById("reviews").offsetHeight + 50;
         // set listener to jiggle gallery sliders
         window.addEventListener("scroll", jiggleGallerySliders);
         // set listener for overriding gallery resize logic
@@ -316,79 +240,8 @@
           );
         }
       }
-
-      /** gallery jiggling (indicate to user they can slide images for comparison) */
-      let jiggled = false;
-      let jiggleThreshold;
-      async function jiggleGallerySliders() {
-        // ensure threshold was initialized + jiggle only once per page load 
-        if (!jiggleThreshold || jiggled) return;
-
-        // ensure jiggle only triggers upon gallery scrolling into view
-        if (window.scrollY < jiggleThreshold) return;
-        jiggled = true;
-
-        // once user scrolls to gallery, move sliders on all images right a bit
-        let sliders = juxtapose.sliders;
-        for (let i = 0; i < sliders.length; i++) {
-          sliders[i].updateSlider(60, true);
-        }
-        
-        // sleep, then slide them all left,
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        for (let i = 0; i < sliders.length; i++) {
-          sliders[i].updateSlider(40, true);
-        }
-
-        // sleep, then reset sliders back to center
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        for (let i = 0; i < sliders.length; i++) {
-          sliders[i].updateSlider(50, true);
-        }
-      }
-
-
-      /** override logic for 'juxtapose' image scaling based on window size changes */
-      function setImageSizes() {
-        let isDesktop = window.innerWidth > 850;
-        let newWidth, newHeight;
-
-        if (isDesktop) {
-          newWidth  =  window.innerWidth   * 0.40;
-        }
-        else {
-          newWidth  = window.innerWidth  * 0.80;
-        }
-
-        // keep all images at 1:1.2 ratio
-        newHeight = newWidth * 1.2;
-
-        // resize iframes
-        let images = document.getElementsByClassName("juxtapose");
-        for (let i = 0; i < images.length; i++) {
-          images[i].style.width = newWidth + 'px';
-          images[i].style.height = newHeight + 'px';
-        }
-        
-        // resize images in each iframe to match new dimensions
-        images = document.getElementsByClassName("jx-image");
-        for (let i = 0; i < images.length; i++) {
-          images[i].style.width  = newWidth  + 'px';
-          images[i].style.height = newHeight + 'px';
-          images[i].children[0].style.width  = newWidth  + 'px';
-          images[i].children[0].style.height = newHeight + 'px';
-        }
-
-        // quickly touch every iframe/slider (otherwise the images glitch out until user interacts with slider again)
-        let sliders = juxtapose.sliders;
-        for (let i = 0; i < sliders.length; i++) {
-          sliders[i].updateSlider(sliders[i].sliderPosition.replace("%", ""), true);
-        }
-
-      }
     </script>
     
     <!-- <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script> -->
-
   </body>
 </html>
