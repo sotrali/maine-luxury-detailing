@@ -1,3 +1,4 @@
 address missing star unicode on all browser
 thicken book button border
 instead of classes for service sizes, use JS to go over service cards and round them up to standardize similar length cards? idk. otherwise will need to pass class in with JSON
+ceramic packages box: change elite/complte from cols into rows
