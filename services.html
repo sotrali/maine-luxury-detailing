@@ -60,14 +60,15 @@
       }
       #downArrow {
         transform: rotate(-45deg);
-        height: 20px;
-        width: 20px;
-        border-left: solid 2px var(--gold);
-        border-bottom: solid 2px var(--gold);
-      }
-      #downArrow:hover {
+        height: 30px;
+        width: 30px;
         border-left: solid 3px var(--gold);
         border-bottom: solid 3px var(--gold);
+      }
+      #downArrow:hover {
+        /** border-left: solid 3px var(--gold);
+        border-bottom: solid 3px var(--gold);*/
+        transform: rotate(-45deg) scaleX(110%) scaleY(110%);
       }
 
       #categoryContainer {
@@ -99,10 +100,48 @@
       .service {
         display: flex;
         flex-direction: column;
+        align-items: center;
 
         height: 100%;
 
         width: 40rem;
+      }
+      /** "BOOK NOW" buttons */
+      .service button {
+        height: 5rem;
+        min-width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: var(--black);
+        color: var(--gold);
+
+        border: 1px solid var(--dark-gold);
+        border-radius: 5rem;
+
+        padding: 2rem 1rem;
+        margin: 2rem 0;
+
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s ease;
+      }
+      .service button:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 10px var(--gold);
+        font-size: 1.75rem;
+      }
+      .service button:active {
+        background-color: var(--gold);
+      }
+      /** booking link */
+      .service a {
+        display: block;
+        width: 50%;
+        text-decoration: none;
       }
 
       .card {
@@ -571,19 +610,22 @@
             target.insertAdjacentHTML(
             "beforeend",
             `
-            <a class="service" href=${service.url} target="_blank">
-              <div class="card">
-                <div class="card-head">
-                  <h2>${service.title}</h2>
-                  <p>${service.subtitle}</p>
+              <div class="service">
+                <div class="card">
+                  <div class="card-head">
+                    <h2>${service.title}</h2>
+                    <p>${service.subtitle}</p>
+                  </div>
+                  <div class="card-body">
+                    ${leftSide  ? leftSide : ""}
+                    ${rightSide ? rightSide : ""}
+                  </div>
                 </div>
-                <div class="card-body">
-                  ${leftSide  ? leftSide : ""}
-                  ${rightSide ? rightSide : ""}
-                </div>
+                <a href=${service.url} target="_blank" class="book-link">
+                <button>BOOK</button>
+                </a>
               </div>
-            </a>
-          `);
+            `);
           }
         }
       }
