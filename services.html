@@ -82,6 +82,7 @@
       }
       .serviceContainer {
         display: flex;
+        flex-direction: row;
         align-items: flex-start;
         justify-content: space-evenly;
         flex-wrap: wrap;
@@ -96,19 +97,30 @@
       }
 
 
-      /** Services */
-      a.service { text-decoration: none;}
-      .service {
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        text-align: left;
+      }
+
+      .serviceContainer div {
+        width: 50%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 1rem;
 
-        height: 100%;
-
-        width: 40rem;
       }
+
       /** "BOOK NOW" buttons */
-      .service button {
+      .book-link {
+        display: block;
+        width: 30%;
+        text-decoration: none;
+        user-select: none;
+      } 
+
+      button {
         height: 5rem;
         min-width: 100%;
 
@@ -130,101 +142,17 @@
         text-decoration: none;
         transition: 0.3s ease;
       }
-      .service button:hover {
+      button:hover {
         cursor: pointer;
         box-shadow: 0px 0px 10px var(--gold);
         font-size: 1.75rem;
       }
-      .service button:active {
+      button:active {
         background-color: var(--gold);
       }
-      /** booking link */
-      .service a {
-        display: block;
-        width: 50%;
-        text-decoration: none;
-      }
-
-      .card {
-        padding: 3rem;
-        border: 2px solid var(--gold);
-        border-radius: 1rem;
-
-        transition: 0.5s ease;
-        color: white;
-        width: 100%;
-      }
-      .card:hover {
-        border: 2px solid white;
-      }
-
-      /** TODO implement these classes to make consistent service card sizes */
-      .tall   { height: 30rem; }
-      .medium { height: 20rem; }
-      .short  { height: 10rem; }
-
-      .card-head {
-        margin-bottom: 2rem;
-      }
-
-      .card-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        text-align: left;
-        width: 100%;
-      }
-
-      /** .card-body span {
-        display: flex;
-        flex-direction: column;
-        align-self: stretch;
-
-        width: 50%;
-      }*/
-      .card-body span {
-        display: flex;
-        flex-direction: column;
-        align-self: stretch;
-
-        width: 100%;
-      }
-      .card-body span h3 {
-        text-align: center;
-      }
 
 
 
-      /** Booking Button */
-      .book-button {
-        background-color: var(--black);
-        color: var(--gold);
-        width: 50%;
-        height: 4rem;
-      
-        border: 1px solid white;
-        border-radius: 5rem;
-
-        padding: .5rem 1rem;
-
-        font-size: 1rem;
-        font-weight: bold;
-        text-decoration: none;
-        transition: 0.5s ease;
-      }
-      .book-button:hover {
-        cursor: pointer;
-        box-shadow: 0px 0px 15px var(--gold);
-      }
-      .book-button:active {
-        background-color: var(--gold);
-      }
-      
-      .book-link {
-        user-select: none;
-      } 
       
       /** mobile rules */
       /** MOBILE */
@@ -278,7 +206,7 @@
         <div id="tableOfContents">
           <h1>Our Services</h1>
           <div id="categoryLinks">
-            <a href="#packagesJump" class="jumpLink"><h2>Service Packages</h2></a>
+            <a href="#packagesJump" class="jumpLink"><h2>Detailing Packages</h2></a>
             <a href="#ceramicJump"  class="jumpLink"><h2>Ceramic Coating</h2></a>
             <a href="#paintJump"    class="jumpLink"><h2>Polish &<br/>Paint Correction</h2></a>
             <a href="#exteriorJump" class="jumpLink"><h2>Exterior Detailing</h2></a>
@@ -292,9 +220,24 @@
 
         <div id="categoryContainer">
           <span id="packagesJump" class="landing"></span>
-          <h1 class="serviceHeader">Service Packages</h1>
-          <a href="#main-content">back to top</a>
+          <h1 class="serviceHeader">Detailing Packages</h1>
           <div id="packages" class="serviceContainer">
+            <p>
+              Our packages are a well rounded mixture of interior and exterior
+              services offered at a modest price.
+            </p>
+            <div>
+              <ul>
+                <li>Vacuum & light carpet shampooing</li>
+                <li>Plastics, leather, and vinyls cleaning</li>
+                <li>Seat shampooing</li>
+                <li>Interior & exterior window cleaning</li>
+                <li>Crack & crevice cleaning</li>
+              </ul>
+            </div>
+            <a href="https://app.urable.com/virtual-shop/IQlYjZyF1i2XilEiEKB5/XGQVAkJx15acdsEemvEr" target="_blank" class="book-link">
+              <button>View Packages</button>
+            </a>
           </div>
 
           <span id="ceramicJump" class="landing"></span>
@@ -653,7 +596,7 @@
       }
 
       window.onload = (event) => {
-        insertServices(serviceData);
+        // insertServices(serviceData);
 
         // jump to category if coming from index/home page
         let params = new URLSearchParams(document.location.search);
